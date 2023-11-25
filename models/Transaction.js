@@ -13,6 +13,7 @@ class Expense {
     const timestamp = new Date().getTime();
     const random = Math.floor(Math.random() * 1000);
     this.id = timestamp + "" + random.toString().padStart(3, '0');
+    this.type = "expense"
   }
 
   
@@ -27,7 +28,12 @@ class Income {
     this.amount = amount;           // Amount of the income
     this.source = source;           // Source of the income
     this.username = username;       // Username associated with the income
-    this.date = date;               //Date of expense
+    this.date = date;               //Date of income
+
+    const timestamp = new Date().getTime();
+    const random = Math.floor(Math.random() * 1000);
+    this.id = timestamp + "" + random.toString().padStart(3, '0');
+    this.type = "income"
   }
 
   
