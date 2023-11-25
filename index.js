@@ -24,10 +24,14 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + "/public/" + startPage);
 });
 
-// Importing the 'addExpense' function from the 'ExpenseUtil' module
-const {addExpense} = require('./utils/ExpenseUtil')
+// Importing the required functions from the 'ExpenseUtil' module
+const {addExpense,editExpense} = require('./utils/ExpenseUtil')
 // Handling a POST request to the '/add-expense' endpoint by calling the 'addExpense' function
 app.post('/add-expense', addExpense);
+
+
+// Handling a PUT request to the '/edit-expense' endpoint by calling the 'editExpense' function
+app.put("/edit-expense/:id", editExpense)
 
 // Listening on the specified port
 app.listen(PORT, function () {
