@@ -25,13 +25,16 @@ app.get('/', (req, res) => {
 });
 
 // Importing the required functions from the 'ExpenseUtil' module
-const {addExpense,editExpense} = require('./utils/ExpenseUtil')
+const {addExpense,editExpense,deleteExpense} = require('./utils/ExpenseUtil')
 // Handling a POST request to the '/add-expense' endpoint by calling the 'addExpense' function
 app.post('/add-expense', addExpense);
 
 
 // Handling a PUT request to the '/edit-expense' endpoint by calling the 'editExpense' function
 app.put("/edit-expense/:id", editExpense)
+
+// Handling a DELETE request to the '/delete-expense' endpoint by calling the 'deleteExpense' function
+app.delete("/delete-expense/:id", deleteExpense)
 
 // Listening on the specified port
 app.listen(PORT, function () {
