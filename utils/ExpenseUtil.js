@@ -118,10 +118,52 @@ async function editExpense(req, res) {
     }
 }
 
+// Function to handle the deletion of an expense based on its ID
+async function deleteExpense(req, res) {
+    try {
+        // Extracting the ID parameter from the request
+        const id = req.params.id;
+
+        // Reading all expenses from the JSON file
+        const allExpenses = await readJSON('utils/transactions.json');
+
+        // Variable to store the index of the expense to be deleted
+        var index = -1;
+
+        // Iterating through all expenses to find the specified expense by ID
+        for (var i = 0; i < allExpenses.length; i++) {
+            var currentExpense = allExpenses[i];
+            if (currentExpense.id == id)
+                // Storing the index of the matching expense
+                index = i;
+        }
+
+        // Checking if the specified expense was found
+        if (index != -1) {
+            // Removing the expense from the array by its index
+            allExpenses.splice(index, 1);
+
+            // Writing the updated expenses back to the JSON file
+            await fs.writeFile('utils/transactions.json', JSON.stringify(allExpenses), 'utf8');
+
+            // Sending a success response with a 201 status code
+            return res.status(201).json({ message: 'Expense deleted successfully!' });
+        } else {
+            // Sending an error response if the specified expense was not found
+            return res.status(500).json({ message: 'Error occurred, unable to delete!' });
+        }
+    } catch (error) {
+        // Handling errors during the expense deletion process
+        return res.status(500).json({ message: error.message });
+    }
+}
+
+
 
 // Exporting functions
 module.exports = {
   addExpense,
-  editExpense
+  editExpense,
+  deleteExpense
 
 };
