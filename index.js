@@ -1,5 +1,5 @@
 // Importing necessary modules
-var express = require('express');
+var express = require("express");
 var bodyParser = require("body-parser");
 
 // Creating an Express application
@@ -18,8 +18,11 @@ app.use(bodyParser.json());
 // Serving static files from the 'public' directory
 app.use(express.static("./public"));
 
+const { register } = require("./utils/UserUtil");
+app.post("/register", register);
+
 // Handling GET requests to the root URL '/'
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   // Sending the specified start page as the response
   res.sendFile(__dirname + "/public/" + startPage);
 });
