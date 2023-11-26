@@ -18,8 +18,9 @@ app.use(bodyParser.json());
 // Serving static files from the 'public' directory
 app.use(express.static("./public"));
 
-const { register } = require("./utils/UserUtil");
+const { register,login } = require("./utils/UserUtil");
 app.post("/register", register);
+app.post('/login', login);
 
 // Handling GET requests to the root URL '/'
 app.get("/", (req, res) => {
