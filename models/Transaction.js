@@ -1,4 +1,4 @@
-class Transactions {
+class Expense {
   constructor(name, description, amount) {
     this.name = name;
     this.description = description;
