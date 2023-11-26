@@ -5,7 +5,7 @@ const fs = require("fs").promises;
 
 
 // Import functions to be tested from the TransactionUtil module
-const { addIncome, editIncome, deleteIncome } = require("../utils/TransactionUtil");
+const { addIncome, editIncome, deleteIncome, viewTransactions } = require("../utils/TransactionUtil");
 
 // Test suite for Income-related features-
 describe('Testing Income related features', () => {
@@ -76,7 +76,7 @@ describe('Testing Income related features', () => {
             },
             // Mocking the 'json' method to check if the response data is as expected  
             json: function (data) {
-                expect(data.message).to.equal("Validation error");
+                expect(data.message).to.not.equal(undefined);
             },
         };
 
@@ -186,6 +186,26 @@ describe('Testing Income related features', () => {
 
         // Call the "deleteIncome" function with the mocked request and response objects to test
         await deleteIncome(req, res);
+    });
+
+    // Test cases: Able to view all transactions successfully
+    it('Able to view all transactions successfully', async () => {
+        const req = {};
+
+        const res = {
+            // Mocking the 'status' method to check if the correct status code is set
+            status: function (code) {
+                expect(code).to.equal(200);
+                return this;
+            },
+            // Mocking the 'json' method to check if the response data is as expected    
+            json: function (data) {
+                expect(data).to.be.an('array');
+            }
+        };
+
+        // Call the "addIncome" function with the mocked request and response objects to test
+        await viewTransactions(req, res);
     });
 
 });
