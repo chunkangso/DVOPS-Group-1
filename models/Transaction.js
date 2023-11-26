@@ -19,16 +19,16 @@ class Expense {
   
 }
 
-// Class representing an Income entity. For U Chun Kang,😝
+// Class representing an Income entity
 class Income {
   // Constructor for Income
-  constructor(name, description, amount, source, username) {
+  constructor(name, description, amount, source, username, date) {
     this.name = name;               // Name of the income
     this.description = description; // Description of the income
     this.amount = amount;           // Amount of the income
     this.source = source;           // Source of the income
     this.username = username;       // Username associated with the income
-    this.date = date;               //Date of income
+    this.date = date;               // Date of income
 
     const timestamp = new Date().getTime();
     const random = Math.floor(Math.random() * 1000);
@@ -36,7 +36,6 @@ class Income {
     this.type = "income"
   }
 
-  
 }
   // Exporting Expense Class and Income Class
   module.exports = { Expense, Income };
