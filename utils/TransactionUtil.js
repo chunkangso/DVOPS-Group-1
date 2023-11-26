@@ -87,7 +87,7 @@ async function editIncome(req, res) {
       await fs.writeFile('utils/transactions.json', JSON.stringify(allTransactions), 'utf8');
 
       // Sending a success response with a 201 status code
-      return res.status(201).json({ message: 'Expense modified successfully!' });
+      return res.status(201).json({ message: 'Income modified successfully!' });
     } else {
       // Sending an error response if no modification occurred
       return res.status(500).json({ message: 'Error occurred, unable to modify!' });

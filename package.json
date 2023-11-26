@@ -5,11 +5,12 @@
   "main": "index.js",
   "nyc": {
     "include": [
-    "utils/ExpenseUtil.js"
+      "utils/ExpenseUtil.js",
+      "utils/TransactionUtil.js"
     ],
     "exclude": [],
     "reporter": [
-    "html"
+      "html"
     ],
     "all": true,
     "check-coverage": true,
@@ -17,7 +18,7 @@
     "lines": 80,
     "functions": 80,
     "statements": 80
-    },
+  },
   "scripts": {
     "test": "nyc mocha tests/*.test.js"
   },
