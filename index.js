@@ -36,9 +36,9 @@ const { addIncome, editIncome, deleteIncome } = require('./utils/TransactionUtil
 // Handling POST requests to the '/add-income' endpoint by calling the 'addIncome' function
 app.post('/add-income', addIncome);
 // Handling PUT requests to the '/edit-income' endpoint by calling the 'editIncome' function
-app.put('/edit-income', editIncome);
+app.put('/edit-income/:id', editIncome);
 // Handling DELETE requests to the '/delete-income' endpoint by calling the 'deleteIncome' function
-app.delete('/delete-income', deleteIncome);
+app.delete('/delete-income/:id', deleteIncome);
 
 // Importing the required functions from the 'ExpenseUtil' module
 const {

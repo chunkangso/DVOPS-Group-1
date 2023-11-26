@@ -1,3 +1,6 @@
+// Importing the 'fs' module 
+const fs = require("fs").promises;
+
 // Importing readJSON and writeJSON functions from UserUtil
 const { readJSON, writeJSON } = require('./UserUtil');
 
@@ -43,11 +46,11 @@ async function addIncome(req, res) {
   }
 }
 
-// Controller function to handle the editting of an existing income
+// Controller function to handle the editing of an expense based on its ID
 async function editIncome(req, res) {
   try {
-    // Extracting data from the request body
-    const id = req.body.id; // id of the income record
+    // Extracting parameters from the request
+    const id = req.params.id;
     const name = req.body.name; // Name of the income 
     const description = req.body.description; // Description of the income
     const amount = req.body.amount; // Amount of the income
@@ -55,63 +58,87 @@ async function editIncome(req, res) {
     const username = req.body.username; // Username associated with the income
     const date = req.body.date;
 
-    // Reading all the existing transactions from the JSON file
+    // Reading all income from the JSON file
     const allTransactions = await readJSON('utils/transactions.json');
 
-    // Finding the index of the income to be edited based on its id
-    const indexOfIncomeToEdit = allTransactions.findIndex(income => income.id === id);
+    // Variable to track if any modification has occurred
+    var modified = false;
 
-    // If the income is not found, return a 404 status
-    if (indexOfIncomeToEdit === -1) {
-      return res.status(404).json({ message: "Income records not found" });
+    // Iterating through all income to find and update the specified income by ID
+    for (var i = 0; i < allTransactions.length; i++) {
+      var currentIncome = allTransactions[i];
+      if (currentIncome.id == id) {
+        // Modifying the properties of the matching income
+        allTransactions[i].name = name;
+        allTransactions[i].description = description;
+        allTransactions[i].amount = amount;
+        allTransactions[i].source = source;
+        allTransactions[i].username = username;
+        allTransactions[i].date = date;
+
+        // Setting the 'modified' flag to true
+        modified = true;
+      }
     }
 
-    // Updating the income data
-    allTransactions[indexOfIncomeToEdit] = new Income(name, description, amount, source, username, date);
+    // Checking if any modification has occurred
+    if (modified) {
+      // Writing the updated income back to the JSON file
+      await fs.writeFile('utils/transactions.json', JSON.stringify(allTransactions), 'utf8');
 
-    // Writing the updated income list to the JSON file
-    await writeJSON(allTransactions, "utils/transactions.json");
-
-
-    // Sending the updated income as the response with a 200 status code
-    return res.status(200).json(allTransactions[indexOfIncomeToEdit]);
+      // Sending a success response with a 201 status code
+      return res.status(201).json({ message: 'Expense modified successfully!' });
+    } else {
+      // Sending an error response if no modification occurred
+      return res.status(500).json({ message: 'Error occurred, unable to modify!' });
+    }
   } catch (error) {
-    // Handling errors during the income editing process
+    // Handling errors during the expense modification process
     return res.status(500).json({ message: error.message });
   }
 }
 
-// Controller function to handle the deletion of an existing income
+
+// Controller function to handle the deletion of an income based on its ID
 async function deleteIncome(req, res) {
   try {
-    // Extract the incoem ID from the request parameters
+    // Extracting the ID parameter from the request
     const id = req.params.id;
 
-    // Read all the existing transacations from the JSON file
+    // Reading all incomes from the JSON file
     const allTransactions = await readJSON('utils/transactions.json');
 
-    // Finding the index of the income to be deleted based on its id
-    const indexOfIncomeToDelete = allTransactions.findIndex(income => income.id === id);
+    // Variable to store the index of the income to be deleted
+    var index = -1;
 
-    // If the income is not found, return a 404 status
-    if (indexOfIncomeToDelete === -1) {
-      return res.status(404).json({ message: "Income not found" });
+    // Iterating through all incomes to find the specified income by ID
+    for (var i = 0; i < allTransactions.length; i++) {
+      var currentIncome = allTransactions[i];
+      if (currentIncome.id == id)
+        // Storing the index of the matching income
+        index = i;
     }
 
-    // Remove the income from the array
-    const deletedIncome = allTransactions.splice(indexOfIncomeToDelete, 1);
+    // Checking if the specified income was found
+    if (index != -1) {
+      // Removing the income from the array by its index
+      allTransactions.splice(index, 1);
 
-    // Write the updated income list to the JSON file
-    await writeJSON(allTransactions, 'utils/transactions.json');
+      // Writing the updated incomes back to the JSON file
+      await fs.writeFile('utils/transactions.json', JSON.stringify(allTransactions), 'utf8');
 
-    // Send the deleted income as the response with a 200 status code
-    return res.status(200).json(deletedIncome[0]);    
-
+      // Sending a success response with a 201 status code
+      return res.status(201).json({ message: 'Income deleted successfully!' });
+    } else {
+      // Sending an error response if the specified income was not found
+      return res.status(500).json({ message: 'Error occurred, unable to delete!' });
+    }
   } catch (error) {
-    // Handles the errors during the income deletion process
+    // Handling errors during the income deletion process
     return res.status(500).json({ message: error.message });
   }
 }
+
 
 // Exporting the addIncome function to make it accessible to other parts of the application
 module.exports = {
