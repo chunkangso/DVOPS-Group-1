@@ -22,7 +22,7 @@ const { register, login } = require("./utils/UserUtil");
 app.post("/register", register);
 app.post("/login", login);
 
-const { viewTransactions } = require("./utils/TransactionsUtil");
+const { viewTransactions } = require("./utils/TransactionUtil");
 app.get("/get-transactions", viewTransactions);
 
 // Handling GET requests to the root URL '/'
@@ -30,6 +30,15 @@ app.get("/", (req, res) => {
   // Sending the specified start page as the response
   res.sendFile(__dirname + "/public/" + startPage);
 });
+
+// Importing the required functions from the 'TransactionUtil' module
+const { addIncome, editIncome, deleteIncome } = require('./utils/TransactionUtil')
+// Handling POST requests to the '/add-income' endpoint by calling the 'addIncome' function
+app.post('/add-income', addIncome);
+// Handling PUT requests to the '/edit-income' endpoint by calling the 'editIncome' function
+app.put('/edit-income/:id', editIncome);
+// Handling DELETE requests to the '/delete-income' endpoint by calling the 'deleteIncome' function
+app.delete('/delete-income/:id', deleteIncome);
 
 // Importing the required functions from the 'ExpenseUtil' module
 const {

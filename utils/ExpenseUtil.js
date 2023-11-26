@@ -3,40 +3,8 @@ const fs = require("fs").promises;
 //Importing Expense Class
 const { Expense } = require("../models/Transaction");
 
-// Function to  read JSON data from a file
-async function readJSON(filename) {
-  try {
-    // Reading the content of the file and parsing it as JSON
-    const data = await fs.readFile(filename, "utf8");
-    return JSON.parse(data);
-  } catch (err) {
-    // Handling errors during file read or JSON parsing
-    console.error(err);
-    throw err;
-  }
-}
-
-
-// Function to  write an object to a JSON file
-async function writeJSON(object, filename) {
-  try {
-    // Reading existing JSON data from the file
-    const allObjects = await readJSON(filename);
-
-    // Appending the new object to the existing array of objects
-    allObjects.push(object);
-
-    // Writing the updated array of objects back to the file
-    await fs.writeFile(filename, JSON.stringify(allObjects), "utf8");
-
-    // Returning the updated array of objects
-    return allObjects;
-  } catch (err) {
-    // Handling errors during file read, modification, or write
-    console.error(err);
-    throw err;
-  }
-}
+//Importing required Functions from UserUtil
+const {readJSON, writeJSON} = require('./UserUtil')
 
 
 // Function to add an expense to the JSON file and return the updated expenses
