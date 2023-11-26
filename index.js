@@ -31,6 +31,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/" + startPage);
 });
 
+// Importing the required functions from the 'TransactionUtil' module
+const { addIncome } = require('./utils/TransactionUtil')
+// Handling POST requests to the '/add-income' endpoint by calling the 'addIncome' function
+app.post('/add-income', addIncome)
+
 // Importing the required functions from the 'ExpenseUtil' module
 const {
   addExpense,
