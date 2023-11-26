@@ -15,7 +15,6 @@ class Expense {
     this.type = "expense"
   }
 
-  
 }
 
 // Class representing an Income entity
