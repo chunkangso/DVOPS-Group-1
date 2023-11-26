@@ -2,7 +2,7 @@
 const fs = require("fs").promises;
 //Importing Expense Class
 const { Expense } = require("../models/Transaction");
-//Importing required Functions from
+//Importing required Functions from UserUtil
 const {readJSON, writeJSON} = require('./UserUtil')
 
 // Function to add an expense to the JSON file and return the updated expenses
