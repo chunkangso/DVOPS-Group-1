@@ -204,7 +204,7 @@ describe('Testing Income related features', () => {
             }
         };
 
-        // Call the "addIncome" function with the mocked request and response objects to test
+        // Call the "viewTransactions" function with the mocked request and response objects to test
         await viewTransactions(req, res);
     });
 
