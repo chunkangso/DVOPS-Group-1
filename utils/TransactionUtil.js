@@ -81,7 +81,39 @@ async function editIncome(req, res) {
   }
 }
 
+// Controller function to handle the deletion of an existing income
+async function deleteIncome(req, res) {
+  try {
+    // Extract the incoem ID from the request parameters
+    const id = req.params.id;
+
+    // Read all the existing transacations from the JSON file
+    const allTransactions = await readJSON('utils/transactions.json');
+
+    // Finding the index of the income to be deleted based on its id
+    const indexOfIncomeToDelete = allTransactions.findIndex(income => income.id === id);
+
+    // If the income is not found, return a 404 status
+    if (indexOfIncomeToDelete === -1) {
+      return res.status(404).json({ message: "Income not found" });
+    }
+
+    // Remove the income from the array
+    const deletedIncome = allTransactions.splice(indexOfIncomeToDelete, 1);
+
+    // Write the updated income list to the JSON file
+    await writeJSON(allTransactions, 'utils/transactions.json');
+
+    // Send the deleted income as the response with a 200 status code
+    return res.status(200).json(deletedIncome[0]);    
+
+  } catch (error) {
+    // Handles the errors during the income deletion process
+    return res.status(500).json({ message: error.message });
+  }
+}
+
 // Exporting the addIncome function to make it accessible to other parts of the application
 module.exports = {
-  addIncome, editIncome, viewTransactions,
+  addIncome, editIncome, deleteIncome, viewTransactions,
 };
