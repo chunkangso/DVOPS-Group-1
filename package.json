@@ -6,7 +6,8 @@
   "nyc": {
     "include": [
       "utils/ExpenseUtil.js",
-      "utils/TransactionUtil.js"
+      "utils/TransactionUtil.js",
+      "utils/UserUtil.js"
     ],
     "exclude": [],
     "reporter": [
