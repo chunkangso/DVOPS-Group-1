@@ -32,12 +32,12 @@ Press 'Esc' and type `:wq` then press 'Enter'.
 
 ## Backend Functions
 
-- **Login**
-- **Register**
-- **View Transactions**
-- **Add Income**
-- **Edit Income**
-- **Delete Income**
-- **Add Expense**
-- **Edit Expense**
-- **Delete Expense**
+- Login
+- Register
+- View Transactions
+- Add Income
+- Edit Income
+- Delete Income
+- Add Expense
+- Edit Expense
+- Delete Expense
