@@ -2,7 +2,7 @@
 const fs = require("fs").promises;
 //Importing Expense Class
 const { Expense } = require("../models/Transaction");
-API_KEY = 'skjdfhj23rhl1k2j3h4kj1h23j4h1k23jh4kj12h3'
+//API_KEY = 'skjdfhj23rhl1k2j3h4kj1h23j4h1k23jh4kj12h3'
 //Importing required Functions from UserUtil
 const {readJSON, writeJSON} = require('./UserUtil')
 
@@ -25,7 +25,7 @@ async function addExpense(req, res) {
     const updatedExpenses = await writeJSON(newExpense, "utils/transactions.json");
 
     // Sending the updated expenses as the response with a 201 status code
-    return res.status(201).json(updatedExpenses);
+    return res.status(201).json(updatedExpenses)
   } catch (error) {
     // Handling errors during the expense addition process
     return res.status(500).json({ message: error.message });
