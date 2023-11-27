@@ -2,7 +2,7 @@
 const fs = require("fs").promises;
 //Importing Expense Class
 const { Expense } = require("../models/Transaction");
-var apiKey = 'dfsdfjlsdfhsehtoewhrtoej'
+API_KEY = 'skjdfhj23rhl1k2j3h4kj1h23j4h1k23jh4kj12h3'
 //Importing required Functions from UserUtil
 const {readJSON, writeJSON} = require('./UserUtil')
 
