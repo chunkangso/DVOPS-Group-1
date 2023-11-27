@@ -13,7 +13,7 @@ async function addExpense(req, res) {
     // Extracting necessary properties from the request body
     const name = req.body.name;
     const description = req.body.description;
-    const amount = req.body.amount;
+    const amount = req.body.amount
     const category = req.body.category
     const username = req.body.username
     const date = req.body.date;
