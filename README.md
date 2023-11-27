@@ -32,6 +32,8 @@ Press 'Esc' and type `:wq` then press 'Enter'.
 
 ## Backend Functions
 
+Backend functions have been developed and tested with test cases satisfying the overall code coverage of at least 90%.
+
 - Login
 - Register
 - View Transactions
