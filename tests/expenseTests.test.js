@@ -184,7 +184,7 @@ describe("Testing expense related features", () => {
     };
 
     // Calling the 'deleteExpense' function with the mocked request and response objects
-    await deleteExpense(req, res);
+    await deleteExpense(req, res)
   });
 });
 //Testing
