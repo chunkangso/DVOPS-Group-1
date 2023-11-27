@@ -53,7 +53,7 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "./.husky/prepare-commit-msg"
+      "prepare-commit-msg": "./.husky/prepare-commit-msg.ps1"
     }
   }
 }
