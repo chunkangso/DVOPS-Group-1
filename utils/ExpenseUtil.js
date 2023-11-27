@@ -14,8 +14,8 @@ async function addExpense(req, res) {
     const name = req.body.name;
     const description = req.body.description;
     const amount = req.body.amount;
-    const category = req.body.category;
-    const username = req.body.username;
+    const category = req.body.category
+    const username = req.body.username
     const date = req.body.date;
 
     // Creating a new Expense instance
