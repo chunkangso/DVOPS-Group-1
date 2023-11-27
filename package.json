@@ -11,7 +11,7 @@
     ],
     "exclude": [],
     "reporter": [
-      "html"
+      "html","text-summary"
     ],
     "all": true,
     "check-coverage": true,
@@ -21,7 +21,7 @@
     "statements": 80
   },
   "scripts": {
-    "test": "nyc mocha tests/*.test.js"
+    "test": "nyc mocha --watch tests/*.test.js"
   },
   "author": "",
   "license": "ISC",
