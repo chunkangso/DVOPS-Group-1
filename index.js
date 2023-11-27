@@ -15,7 +15,6 @@ var startPage = "index.html";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 // Serving static files from the 'public' directory
 app.use(express.static("./public"));
 
