@@ -2,7 +2,7 @@ const { User } = require("../models/User");
 const fs = require("fs").promises;
 async function readJSON(filename) {
   try {
-    const data = await fs.readFile(filename, "utf8");
+       const data = await fs.readFile(filename, "utf8");
     return JSON.parse(data);
   } catch (err) {
     console.error(err);
