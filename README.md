@@ -1,7 +1,7 @@
-# DVOPS-Group-1 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-Repository For DVOPS assignment  
+# DVOPS Y2S2 Project [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+**Group Members:** So Chun Kang, Swan Htet Aung, Mahaliyanage Abhishek Thisun Devaka
 
-## Usage
+## Commitizen Usage
 
 Now that Commitizen is set up, you can use it to create commit messages for standardization purposes. Instead of using `git commit -m <comment>`, run:
 
@@ -15,6 +15,8 @@ Otherwise, stick with using your default:
 git commit -m <comment>
 ```
 
+For any issues, please contact Chun Kang regarding bugs/errors.
+
 
 ## Commit Message Creation
 
@@ -27,3 +29,15 @@ Husky should have already been installed, Commitizen will seamlessly run when yo
 ### How to get out if you accidentally ran `git commit`:
 
 Press 'Esc' and type `:wq` then press 'Enter'.
+
+## Backend Functions
+
+- **Login**
+- **Register**
+- **View Transactions**
+- **Add Income**
+- **Edit Income**
+- **Delete Income**
+- **Add Expense**
+- **Edit Expense**
+- **Delete Expense**
