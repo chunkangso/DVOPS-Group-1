@@ -2,9 +2,9 @@
 const fs = require("fs").promises;
 //Importing Expense Class
 const { Expense } = require("../models/Transaction");
-
+API_KEY = 'AIzaSyDaGmWKa4JsXZ-HjGw7ISLn_3namBGewQe';
 //Importing required Functions from UserUtil
-const {readJSON, writeJSON} = require('./UserUtil')
+const {readJSON, writeJSON} = require('./UserUtil');
 
 
 // Function to add an expense to the JSON file and return the updated expenses
@@ -13,9 +13,9 @@ async function addExpense(req, res) {
     // Extracting necessary properties from the request body
     const name = req.body.name;
     const description = req.body.description;
-    const amount = req.body.amount
-    const category = req.body.category
-    const username = req.body.username
+    const amount = req.body.amount;
+    const category = req.body.category;
+    const username = req.body.username;
     const date = req.body.date;
 
     // Creating a new Expense instance
