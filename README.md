@@ -1,6 +1,5 @@
-# DVOPS-Group-1
-Repository For DVOPS assignment
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+# DVOPS-Group-1 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+Repository For DVOPS assignment  
 
 ## Usage
 
