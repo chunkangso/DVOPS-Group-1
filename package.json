@@ -26,7 +26,8 @@
   },
   "scripts": {
     "test": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
-    "test-report": "nyc mocha tests/*.test.js --reporter mochawesome"
+    "test-report": "nyc mocha tests/*.test.js --reporter mochawesome",
+    "commit": "cz"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +40,19 @@
     "nyc": "^15.1.0"
   },
   "devDependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
     "mochawesome": "^7.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   }
 }
