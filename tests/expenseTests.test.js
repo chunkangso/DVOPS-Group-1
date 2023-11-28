@@ -2,7 +2,7 @@
 const { describe, it } = require("mocha");
 const { expect } = require("chai");
 const fs = require("fs").promises;
-
+API_KEY = "DOSFHISD389RIHDFHD";
 // Importing functions to be tested from the ExpenseUtil module
 const { addExpense, deleteExpense, editExpense } = require("../utils/ExpenseUtil");
 
@@ -41,8 +41,8 @@ describe("Testing expense related features", () => {
     const res = {
       // Mocking the 'status' method to check if the correct status code is set
       status: function (code) {
-        expect(code).to.equal(201);
-        return this;
+        expect(code).to.equal(201)
+        return this
       },
       // Mocking the 'json' method to check if the response data is as expected
       json: function (data) {
