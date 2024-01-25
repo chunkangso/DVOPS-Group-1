@@ -3,14 +3,57 @@
   "version": "1.0.0",
   "description": "Repository For DVOPS assignment",
   "main": "index.js",
+  "nyc": {
+    "include": [
+      "utils/ExpenseUtil.js",
+      "utils/TransactionUtil.js",
+      "utils/UserUtil.js"
+    ],
+    "exclude": [],
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "all": true,
+    "check-coverage": true,
+    "branches": 80,
+    "lines": 80,
+    "functions": 80,
+    "statements": 80
+  },
+  "mocha": {
+    "reporter": "mochawesome"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
+    "test-report": "nyc mocha tests/*.test.js --reporter mochawesome",
+    "commit": "cz",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "chai": "^4.3.10",
     "express": "^4.18.2",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
+    "mochawesome": "^7.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "./.husky/prepare-commit-msg.ps1"
+    }
   }
 }

@@ -1,0 +1,21 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+    # Wew will be using npm for our project
+  - package-ecosystem: "npm"
+    # Location of package manifests
+    directory: "/"
+    schedule:
+      # Performs a check on a daily basis
+      interval: "daily"
+    # Helps to ensure that all pull requests have the required dependencies in package-lock.json as main
+    # versioning-strategy: "lockfile-only"
+    commit-message:
+      # Prefix all commit messages with "npm: "
+      prefix: "npm"
+    # Increase the allowed pull requests
+    open-pull-requests-limit: 10
