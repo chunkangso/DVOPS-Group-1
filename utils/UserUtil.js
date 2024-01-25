@@ -60,5 +60,6 @@ module.exports = {
   readJSON,
   writeJSON,
   register,
-  login,
+  login
+
 };
