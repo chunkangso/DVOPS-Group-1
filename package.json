@@ -1,7 +1,7 @@
 {
-  "name": "dvops-group-1",
+  "name": "dvops-final",
   "version": "1.0.0",
-  "description": "Repository For DVOPS assignment",
+  "description": "Repository For final project",
   "main": "index.js",
   "nyc": {
     "include": [

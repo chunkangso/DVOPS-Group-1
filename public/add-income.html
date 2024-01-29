@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to your  CSS file -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <style>
+        /* Basic styling */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Styling for the sidebar */
+        .drawer {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #282E41;
+            color: white;
+        }
+
+        .icons {
+            color: white;
+        }
+
+        .text {
+            color: white;
+        }
+
+        /* Styling for list items */
+        .list-item {
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .list-item:hover {
+            background-color: #151821;
+        }
+    </style>
+
+    <!-- Title of the page -->
+    <title>Add Income</title>
+</head>
+
+<body>
+
+    <!-- Sidebar section for navigation -->
+    <div class="drawer">
+        <div style="height: 64px;"></div> <!-- Placeholder for Toolbar -->
+        <hr style="background-color: #555;"> <!-- Divider -->
+        <ul>
+            <!-- List items generated from mainNavbarItems array -->
+            <li class="list-item" onclick="navigateTo('/route1')">
+                <div>
+                    <span class="icons"><i class="fas fa-right-left"></i></span>
+                    <span class="text">View Transactions</span>
+                </div>
+            </li>
+            <li class="list-item" onclick="navigateTo('/route2')">
+                <div>
+                    <span class="icons"><i class="fa-solid fa-arrow-up"></i></i></span>
+                    <span class="text">Income</span>
+                </div>
+            </li>
+            <li class="list-item" onclick="navigateTo('/route2')">
+                <div>
+                    <span class="icons"><i class="fa-solid fa-arrow-down"></i></i></span>
+                    <span class="text">Expenses</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main content section -->
+    <div style="margin-left: 250px; padding: 20px;">
+        <h1>Main Content</h1>
+        <p>Your page content goes here.</p>
+    </div>
+
+    <script>
+        // Placeholder function to simulate navigation
+        function navigateTo(route) {
+            console.log(`Navigating to ${route}`);
+        }
+    </script>
+
+    <!-- Main content section -->
+    <div class="content">
+        <!-- Heading for the "Add Income" page -->
+        <h1>Add Income</h1>
+
+        <!-- Your specific content (e.g., form) for the "Add Income" page goes here -->
+        <!-- Add your form or any other relevant content here -->
+    </div>
+
+    <!-- Include Font Awesome icons  -->
+    <script src="https://kit.fontawesome.com/5628d4e38f.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
