@@ -20,7 +20,7 @@ form.addEventListener("submit", addIncome);
 
 // Function to update total income
 function updateTotal() {
-    const incomeTotal = incomes.reduce((total, trx) => total + trx.amount, 0);
+    const incomeTotal = incomes.reduce((total, trx) => total + trx.income_amount, 0);
 
     // Update DOM elements with formatted currency values
     income.textContent = formatter.format(incomeTotal).substring(1);
@@ -36,18 +36,18 @@ function renderList() {
         status.textContent = "No income found.";
         return;
     }
-    incomes.forEach(({ id, name, amount, date }) => {
+    incomes.forEach(({ id, income_name, income_amount, income_date }) => {
         const li = document.createElement("li");
 
         // Populate list item with income details
         li.innerHTML = `
       <div class="name">
-        <h4>${name}</h4>
-        <p>${new Date(date).toLocaleDateString()}</p>
+        <h4>${income_name}</h4>
+        <p>${new Date(income_date).toLocaleDateString()}</p>
       </div>
 
       <div class="amount income">
-        <span>${formatter.format(amount)}</span>
+        <span>${formatter.format(income_amount)}</span>
       </div>
     
       <div class="action">
@@ -88,9 +88,9 @@ function addIncome(e) {
     // Add new income to the array
     incomes.push({
         id: incomes.length + 1,
-        name: formData.get("name"),
-        amount: parseFloat(formData.get("amount")),
-        date: new Date(formData.get("date")),
+        income_name: formData.get("income_name"),
+        income_amount: parseFloat(formData.get("income_amount")),
+        income_date: new Date(formData.get("income_date")),
     });
 
     // Reset the form
