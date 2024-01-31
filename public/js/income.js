@@ -104,7 +104,7 @@ async function updateIncome() {
         console.log(response);
         // Check if the income is updated successfully
         if (response.message == "Income modified successfully!") {
-            alert("Income has been updated uccessfully!");
+            alert("Income has been updated successfully!");
             window.location.href = "add-income.html";
         } else {
             // Display an error message if updating income fails
@@ -158,7 +158,7 @@ async function calculateTotalIncome() {
             incomeElement.id = `income-${i}`;
             incomeElement.innerHTML = `
                 <div class="income-title" onclick="getIncomeById('${item.id}')">
-                    <i class="fa fa-arrow-down"></i>
+                    <i class="fa fa-arrow-up"></i>
                     <strong>${item.name}</strong> 
                     <i class="fas fa-trash-alt delete-icon" onclick="deleteIncome(event, '${item.id}')"></i>
                 </div>
