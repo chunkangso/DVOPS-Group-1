@@ -1,6 +1,6 @@
 async function fetchTransactions() {
   try {
-    const response = await fetch("/view-transactions"); 
+    const response = await fetch("/view-transactions");
     const transactions = await response.json();
 
     let totalExpenses = 0;
