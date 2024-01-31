@@ -1,11 +1,214 @@
-.card-header {
-    background-color: #1495FF
-    ;
-    }
-.register{
-    background-color: #1495FF;
-}
-=======
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1f2c;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    width: 250px;
+    background: #001628;
+    color: #eceff1;
+    padding-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-section {
+    text-align: center;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 80px;
+  }
+  
+  .user-name {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #37474f;
+  }
+  
+  .navigation-items {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navigation-item {
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navigation-item i {
+    margin-right: 10px;
+  }
+  
+  .navigation-item:hover {
+    background-color: #546e7a;
+  }
+  
+  /* Content Styles */
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+    margin-top: 0px;
+  }
+  
+  .update-content {
+    margin-left: 450px;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Hover effect for navigation items */
+  .navigation-item:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card-header {
     background-color: aliceblue;
-    }
-
+  }
+  
+  input {
+    color: white;
+    border-radius: 10px;
+    border: none;
+    height: 25px;
+    padding: 7px;
+    width: 300px;
+    background-color: #252b35;
+  }
+  
+  textarea {
+    color: white;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    padding: 7px;
+    width: 300px;
+    background-color: #252b35;
+  }
+  
+  label {
+    font-size: 12px;
+  }
+  
+  button {
+    background-color: #2196f3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #1565c0;
+  }
+  
+  #notificationBox {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    display: none;
+  }
+  
+  #totalIncomeBox {
+    background-color: #252b35;
+    width: 800px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  #totalIncome {
+    text-align: center;
+  }
+  
+  #incomesContainer {
+    margin-top: 80px;
+    margin-left: 150px;
+  }
+  
+  .income {
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 20px;
+    background-color: #252b35;
+    color: white;
+    align-items: center;
+    position: relative;
+  }
+  
+  .income i {
+    margin-right: 10px;
+  }
+  
+  .income strong {
+    margin-left: 5px;
+  }
+  
+  .income-details {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    opacity: 0.8;
+  }
+  
+  .income-details p {
+    margin-left: 10px;
+  }
+  
+  .income-title {
+    position: relative;
+  }
+  
+  .delete-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    color: red;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  
+  .delete-icon:hover {
+    color: darkred;
+  }
+  
+  a:link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
