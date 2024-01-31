@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-01-30T08:09:54.190Z",
+    "end": "2024-01-30T08:10:01.029Z",
+    "duration": 6839,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3d6857cb-8737-45c5-bbc8-d25c31d790e3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\incomeTest.cy.js",
+      "file": "cypress\\e2e\\incomeTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fea0a09c-1bdb-44f5-bd68-cce5dda7bd09",
+          "title": "Basic Website Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Title should be correct",
+              "fullTitle": "Basic Website Test Title should be correct",
+              "timedOut": null,
+              "duration": 789,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Steps\ncy.visit(\"http://localhost:5050/add-income.html\");\n// Title should be equal to Add Income\ncy.title().should(\"eq\", \"Add Income\");",
+              "err": {},
+              "uuid": "6c2e1169-58a0-4a6b-b027-b33157a4dbdc",
+              "parentUUID": "fea0a09c-1bdb-44f5-bd68-cce5dda7bd09",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Title should be wrong",
+              "fullTitle": "Basic Website Test Title should be wrong",
+              "timedOut": null,
+              "duration": 4181,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Steps\ncy.visit(\"http://localhost:5050/add-income.html\");\n// Title should not be equal to our app name, BudgetBuddy\ncy.title().should(\"not.eq\", \"Add Income\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'Add Income' to not equal 'Add Income'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'Add Income' to not equal 'Add Income'\n    at Context.eval (webpack://dvops-final/./cypress/e2e/incomeTest.cy.js:19:23)",
+                "diff": ""
+              },
+              "uuid": "0d547be9-0e68-40ff-b39c-b5e26d35742d",
+              "parentUUID": "fea0a09c-1bdb-44f5-bd68-cce5dda7bd09",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6c2e1169-58a0-4a6b-b027-b33157a4dbdc"
+          ],
+          "failures": [
+            "0d547be9-0e68-40ff-b39c-b5e26d35742d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4970,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

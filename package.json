@@ -25,8 +25,12 @@
     "reporter": "mochawesome"
   },
   "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "test": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
-    "test-report": "nyc mocha tests/*.test.js --reporter mochawesome",
+    "test-report": "nyc cypress run --spec 'public/js/*.cy.js' --reporter mochawesome",
+    "test-reports": "nyc mocha tests/*.test.js --reporter mochawesome",
+    "test:open": "nyc cypress open --reporter mochawesome",
     "commit": "cz",
     "prepare": "husky install"
   },
@@ -35,16 +39,20 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "chai": "^4.3.10",
+    "cypress": "^13.6.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0"
+    "mocha": "^10.2.0"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.12.19",
+    "babel-plugin-istanbul": "^6.1.1",
     "commitizen": "^4.3.0",
+    "cypress-mochawesome-reporter": "^3.8.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
-    "mochawesome": "^7.1.3"
+    "mochawesome": "^7.1.3",
+    "nyc": "^15.1.0"
   },
   "config": {
     "commitizen": {
