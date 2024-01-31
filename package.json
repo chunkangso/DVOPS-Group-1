@@ -26,8 +26,8 @@
     "reporter": "mochawesome"
   },
   "scripts": {
-    "test": "nyc mocha tests/*.test.js --reporter mochawesome",
-    "tests": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
+    "test": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
+    "test-jenkins": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
     "test-report": "nyc mocha tests/*.test.js --reporter mochawesome",
     "commit": "cz",
     "prepare": "husky install"

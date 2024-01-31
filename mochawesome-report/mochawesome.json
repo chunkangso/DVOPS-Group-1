@@ -5,9 +5,9 @@
     "passes": 18,
     "pending": 0,
     "failures": 2,
-    "start": "2024-01-31T19:44:18.870Z",
-    "end": "2024-01-31T19:44:18.939Z",
-    "duration": 69,
+    "start": "2024-01-31T19:45:26.371Z",
+    "end": "2024-01-31T19:45:26.443Z",
+    "duration": 72,
     "testsRegistered": 20,
     "passPercent": 90,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "0181f805-2b02-424e-a2d1-1f74b7b60527",
+      "uuid": "eed6f234-7e79-4c95-aca7-98a0e84abaca",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "08d75dfe-2f29-4288-b553-534d6b605779",
+          "uuid": "10824f73-d901-422b-b0ca-b15c4c288f53",
           "title": "Testing expense related features",
           "fullFile": "C:\\Users\\Chun Kang So\\Desktop\\Y2S2 Projects\\DVOPS\\DVOPS-Group-1\\tests\\expenseTests.test.js",
           "file": "\\tests\\expenseTests.test.js",
@@ -36,7 +36,7 @@
               "title": "\"before each\" hook in \"Testing expense related features\"",
               "fullTitle": "Testing expense related features \"before each\" hook in \"Testing expense related features\"",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "orgContent = await fs.readFile(expensesFilePath, \"utf8\");\norgContent = JSON.parse(orgContent);",
               "err": {},
-              "uuid": "6f2051cd-8b07-40e7-a989-1fc6a7e521f3",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "0e69bc7b-87e6-4c13-9979-61291533c21a",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": true,
               "skipped": false
             }
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await fs.writeFile(expensesFilePath, JSON.stringify(orgContent), \"utf8\");",
               "err": {},
-              "uuid": "73d65254-3b4a-4fe4-bea0-4fc9a63ea43d",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "818b3304-7c6a-406e-beb1-93173815cd0f",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": true,
               "skipped": false
             }
@@ -85,8 +85,8 @@
               "context": null,
               "code": "const req = {\n  body: {\n    name: \"Groceries\",\n    description: \"Weekly grocery shopping\",\n    amount: 40,\n    category: \"Food\",\n    username: \"john_doe\",\n    date: \"2023-10-30\"\n  }\n};\nconst res = {\n  // Mocking the 'status' method to check if the correct status code is set\n  status: function (code) {\n    expect(code).to.equal(201);\n    return this;\n  },\n  // Mocking the 'json' method to check if the response data is as expected\n  json: function (data) {\n    expect(data).to.have.lengthOf(orgContent.length + 1);\n    expect(data[orgContent.length].name).to.equal(req.body.name);\n  },\n};\n// Calling the 'addExpense' function with the mocked request and response objects\nawait addExpense(req, res);",
               "err": {},
-              "uuid": "fc3ede7a-6e80-425f-98a7-77c23d8254f5",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "78014689-6e79-44fc-b9ec-49922b44e31b",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": false,
               "skipped": false
             },
@@ -94,7 +94,7 @@
               "title": "Should not be able to add an expense due to incomplete input",
               "fullTitle": "Testing expense related features Should not be able to add an expense due to incomplete input",
               "timedOut": false,
-              "duration": 1,
+              "duration": 2,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -103,8 +103,8 @@
               "context": null,
               "code": "const req = {\n  body: {\n    name: \"Groceries\",\n    description: \"Weekly grocery shopping\",\n    amount: 40,\n    category: \"Food\",\n    date: \"2023-10-30\"\n  },\n};\nconst res = {\n  // Mocking the 'status' method to check if the correct status code is set\n  status: function (code) {\n    expect(code).to.equal(500);\n    return this;\n  },\n  // Mocking the 'json' method to check if the response message is present\n  json: function (data) {\n    expect(data.message).to.not.equal(undefined);\n  },\n};\n// Calling the 'addExpense' function with the mocked request and response objects\nawait addExpense(req, res);",
               "err": {},
-              "uuid": "57d18865-0669-45f0-a415-b972278bd7db",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "1a16e735-1b36-4ce2-9296-f7a764df529c",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": false,
               "skipped": false
             },
@@ -125,8 +125,8 @@
                 "estack": "AssertionError: expected 500 to equal 201\n    at Object.status (tests\\expenseTests.test.js:103:25)\n    at editExpense (utils\\ExpenseUtil.js:23:12)\n    at async Context.<anonymous> (tests\\expenseTests.test.js:113:5)",
                 "diff": "- 500\n+ 201\n"
               },
-              "uuid": "0208705f-bc2f-4373-9c5b-202236b4d92f",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "03e96e85-0e35-4e4c-a3ca-a8020e2f86a2",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": false,
               "skipped": false
             },
@@ -134,7 +134,7 @@
               "title": "Should not be able to edit an expense due to invalid ID",
               "fullTitle": "Testing expense related features Should not be able to edit an expense due to invalid ID",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -143,8 +143,8 @@
               "context": null,
               "code": "const req = {\n  params: { id: 1000 },\n  body: {\n    name: \"Groceries\",\n    description: \"Weekly grocery shopping\",\n    amount: 40,\n    category: \"Food\",\n    username: \"john_doe\",\n    date: \"2023-10-30\"\n  }\n};\nconst res = {\n  // Mocking the 'status' method to check if the correct status code is set\n  status: function (code) {\n    expect(code).to.equal(500);\n    return this;\n  },\n  // Mocking the 'json' method to check if the response message is as expected\n  json: function (data) {\n    expect(data.message).to.equal('Error occurred, unable to modify!');\n  },\n};\n// Calling the 'editExpense' function with the mocked request and response objects\nawait editExpense(req, res);",
               "err": {},
-              "uuid": "248aa35f-8224-460f-90dc-66e49d9ce3b9",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "855777f4-f006-4bc8-a7c2-f4de9ee69f7b",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": false,
               "skipped": false
             },
@@ -152,7 +152,7 @@
               "title": "Should delete an expense successfully",
               "fullTitle": "Testing expense related features Should delete an expense successfully",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -165,8 +165,8 @@
                 "estack": "AssertionError: expected 500 to equal 201\n    at Object.status (tests\\expenseTests.test.js:155:25)\n    at deleteExpense (utils\\ExpenseUtil.js:35:12)\n    at async Context.<anonymous> (tests\\expenseTests.test.js:165:5)",
                 "diff": "- 500\n+ 201\n"
               },
-              "uuid": "96380dd8-1aba-4f74-bb33-e459ddc7c214",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "db078070-0dd3-4fe5-9b5d-600c7b21418d",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": false,
               "skipped": false
             },
@@ -174,7 +174,7 @@
               "title": "Should not be able to delete an expense due to invalid ID",
               "fullTitle": "Testing expense related features Should not be able to delete an expense due to invalid ID",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -183,22 +183,22 @@
               "context": null,
               "code": "const req = {\n  params: { id: 1000 },\n};\nconst res = {\n  // Mocking the 'status' method to check if the correct status code is set\n  status: function (code) {\n    expect(code).to.equal(500);\n    return this;\n  },\n  // Mocking the 'json' method to check if the response message is as expected\n  json: function (data) {\n    expect(data.message).to.equal('Error occurred, unable to delete!');\n  },\n};\n// Calling the 'deleteExpense' function with the mocked request and response objects\nawait deleteExpense(req, res);",
               "err": {},
-              "uuid": "47969fcc-f1d2-4d12-a467-f321f6d4b5a0",
-              "parentUUID": "08d75dfe-2f29-4288-b553-534d6b605779",
+              "uuid": "91052e32-d794-4d0c-893d-ad44b570e359",
+              "parentUUID": "10824f73-d901-422b-b0ca-b15c4c288f53",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fc3ede7a-6e80-425f-98a7-77c23d8254f5",
-            "57d18865-0669-45f0-a415-b972278bd7db",
-            "248aa35f-8224-460f-90dc-66e49d9ce3b9",
-            "47969fcc-f1d2-4d12-a467-f321f6d4b5a0"
+            "78014689-6e79-44fc-b9ec-49922b44e31b",
+            "1a16e735-1b36-4ce2-9296-f7a764df529c",
+            "855777f4-f006-4bc8-a7c2-f4de9ee69f7b",
+            "91052e32-d794-4d0c-893d-ad44b570e359"
           ],
           "failures": [
-            "0208705f-bc2f-4373-9c5b-202236b4d92f",
-            "96380dd8-1aba-4f74-bb33-e459ddc7c214"
+            "03e96e85-0e35-4e4c-a3ca-a8020e2f86a2",
+            "db078070-0dd3-4fe5-9b5d-600c7b21418d"
           ],
           "pending": [],
           "skipped": [],
@@ -208,7 +208,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+          "uuid": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
           "title": "Testing Income related features",
           "fullFile": "C:\\Users\\Chun Kang So\\Desktop\\Y2S2 Projects\\DVOPS\\DVOPS-Group-1\\tests\\incomeTests.test.js",
           "file": "\\tests\\incomeTests.test.js",
@@ -226,8 +226,8 @@
               "context": null,
               "code": "orgContent = await fs.readFile(incomeFilePath, \"utf8\");\norgContent = JSON.parse(orgContent);",
               "err": {},
-              "uuid": "47e62280-eb3f-4b34-9e49-0edfcd1307a9",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "888ace9d-1bf9-415c-84b8-321759a40164",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": true,
               "skipped": false
             }
@@ -246,8 +246,8 @@
               "context": null,
               "code": "await fs.writeFile(incomeFilePath, JSON.stringify(orgContent), \"utf8\");",
               "err": {},
-              "uuid": "e191cec8-2952-445b-9721-6778ee02aff7",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "c1aee7ec-b5db-412d-81d3-60b9fce2b652",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": true,
               "skipped": false
             }
@@ -266,8 +266,8 @@
               "context": null,
               "code": "const req = {\n    body: {\n        name: \"Test Income\",\n        description: \"Correct inputs for testing\",\n        amount: 6969,\n        source: \"testing\",\n        username: \"chunkang\",\n        date: \"26-11-2023\",\n    }\n};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(201);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected    \n    json: function (data) {\n        expect(data).to.have.lengthOf(orgContent.length + 1);\n        expect(data[orgContent.length].name).to.equal(req.body.name);\n    }\n};\n// Call the \"addIncome\" function with the mocked request and response objects to test\nawait addIncome(req, res);",
               "err": {},
-              "uuid": "2b275578-5220-43d2-b450-326e1565f4a7",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "a1bbbf79-0ebe-4b0a-8e4f-4e9e16c96f03",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             },
@@ -275,7 +275,7 @@
               "title": "Unable to add a new income due to incomplete input",
               "fullTitle": "Testing Income related features Unable to add a new income due to incomplete input",
               "timedOut": false,
-              "duration": 1,
+              "duration": 0,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -284,8 +284,8 @@
               "context": null,
               "code": "const req = {\n    body: {\n        name: \"Test Income\",\n        description: \"Correct inputs for testing\",\n        source: \"testing\",\n        username: \"chunkang\",\n        date: \"26-11-2023\",\n    }\n};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(500);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected  \n    json: function (data) {\n        expect(data.message).to.not.equal(undefined);\n    },\n};\n// Call the \"addIncome\" function with the mocked request and response objects to test\nawait addIncome(req, res);",
               "err": {},
-              "uuid": "0022d167-1db6-45ef-a3de-81a225bbaab8",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "6dce98e7-b36c-4a83-ace3-36d50d3c2c1b",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             },
@@ -302,8 +302,8 @@
               "context": null,
               "code": "const req = {\n    params: { id: 1706728421915975 },\n    body: {\n        name: \"Test edits\",\n        description: \"Editted this through testing case\",\n        amount: 1,\n        source: \"Test Edits\",\n        username: \"chunkang\",\n        date: \"26-11-2023\",\n    }\n};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(201);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected    \n    json: function (data) {\n        expect(data.message).to.equal('Income modified successfully!');\n    },\n};\n// Call the \"editIncome\" function with the mocked request and response objects to test\nawait editIncome(req, res);",
               "err": {},
-              "uuid": "cd6e66b6-bdf8-45f1-b765-e6c86728b991",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "fcec3509-966b-4e3f-b580-630b70a92323",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             },
@@ -320,8 +320,8 @@
               "context": null,
               "code": "const req = {\n    params: { id: 6969 },\n    body: {\n        name: \"Test edits\",\n        description: \"Editted this through testing case\",\n        amount: 1,\n        source: \"Test Edits\",\n        username: \"chunkang\",\n        date: \"26-11-2023\",\n    }\n};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(500);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected    \n    json: function (data) {\n        expect(data.message).to.equal('Error occurred, unable to modify!');\n    },\n};\n// Call the \"editIncome\" function with the mocked request and response objects to test\nawait editIncome(req, res);",
               "err": {},
-              "uuid": "259f9509-2c1d-4842-8008-6911b718d7aa",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "35c912bd-8701-4faf-913f-0d4f3b8abe3d",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             },
@@ -329,7 +329,7 @@
               "title": "Able to delete an income successfully",
               "fullTitle": "Testing Income related features Able to delete an income successfully",
               "timedOut": false,
-              "duration": 2,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -338,8 +338,8 @@
               "context": null,
               "code": "const req = {\n    params: { id: 1706728421915975 }\n};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(201);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected    \n    json: function (data) {\n        expect(data.message).to.equal('Income deleted successfully!');\n    },\n};\n// Call the \"deleteIncome\" function with the mocked request and response objects to test\nawait deleteIncome(req, res);",
               "err": {},
-              "uuid": "e91ea594-1afc-43c2-8f90-4e56ccec41ef",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "a71b0805-0048-4ebc-afc0-85f85aaf24c5",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             },
@@ -356,8 +356,8 @@
               "context": null,
               "code": "const req = {\n    params: { id: 690696 }\n};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(500);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected    \n    json: function (data) {\n        expect(data.message).to.equal('Error occurred, unable to delete!');\n    },\n};\n// Call the \"deleteIncome\" function with the mocked request and response objects to test\nawait deleteIncome(req, res);",
               "err": {},
-              "uuid": "5b9c3130-a2e7-4c9c-b538-74f7bf95a066",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "5b536502-0657-4bf5-8a3a-6b679a74a41c",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             },
@@ -374,32 +374,32 @@
               "context": null,
               "code": "const req = {};\nconst res = {\n    // Mocking the 'status' method to check if the correct status code is set\n    status: function (code) {\n        expect(code).to.equal(200);\n        return this;\n    },\n    // Mocking the 'json' method to check if the response data is as expected    \n    json: function (data) {\n        expect(data).to.be.an('array');\n    }\n};\n// Call the \"viewTransactions\" function with the mocked request and response objects to test\nawait viewTransactions(req, res);",
               "err": {},
-              "uuid": "fcb9ac6c-6e33-4ec8-a9c2-1b7a847b9ae2",
-              "parentUUID": "ebf6d230-2b79-4d4a-8c82-c6d423fd84d8",
+              "uuid": "308600f5-1223-4b1a-9696-4e865efe8319",
+              "parentUUID": "7fb3badd-1649-4959-b70d-7ef6bcebdced",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2b275578-5220-43d2-b450-326e1565f4a7",
-            "0022d167-1db6-45ef-a3de-81a225bbaab8",
-            "cd6e66b6-bdf8-45f1-b765-e6c86728b991",
-            "259f9509-2c1d-4842-8008-6911b718d7aa",
-            "e91ea594-1afc-43c2-8f90-4e56ccec41ef",
-            "5b9c3130-a2e7-4c9c-b538-74f7bf95a066",
-            "fcb9ac6c-6e33-4ec8-a9c2-1b7a847b9ae2"
+            "a1bbbf79-0ebe-4b0a-8e4f-4e9e16c96f03",
+            "6dce98e7-b36c-4a83-ace3-36d50d3c2c1b",
+            "fcec3509-966b-4e3f-b580-630b70a92323",
+            "35c912bd-8701-4faf-913f-0d4f3b8abe3d",
+            "a71b0805-0048-4ebc-afc0-85f85aaf24c5",
+            "5b536502-0657-4bf5-8a3a-6b679a74a41c",
+            "308600f5-1223-4b1a-9696-4e865efe8319"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6,
+          "duration": 4,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "b9b7ac53-2e43-4f10-bce0-4d55f2ac2305",
+          "uuid": "87ac8728-1a55-427f-93ea-43ac55faa395",
           "title": "Testing API Routes",
           "fullFile": "C:\\Users\\Chun Kang So\\Desktop\\Y2S2 Projects\\DVOPS\\DVOPS-Group-1\\tests\\routesTests.test.js",
           "file": "\\tests\\routesTests.test.js",
@@ -417,8 +417,8 @@
               "context": null,
               "code": "orgContent = await fs.readFile(usersFilePath, \"utf8\");\norgContent = JSON.parse(orgContent);",
               "err": {},
-              "uuid": "70f3592f-6f3f-4867-b82a-10522cd7c295",
-              "parentUUID": "b9b7ac53-2e43-4f10-bce0-4d55f2ac2305",
+              "uuid": "b8747281-74c8-4e59-bd34-738b9906187c",
+              "parentUUID": "87ac8728-1a55-427f-93ea-43ac55faa395",
               "isHook": true,
               "skipped": false
             }
@@ -437,8 +437,8 @@
               "context": null,
               "code": "await fs.writeFile(usersFilePath, JSON.stringify(orgContent), \"utf8\");",
               "err": {},
-              "uuid": "96e66c77-5a08-4b42-8cf2-8a2c66d2cd05",
-              "parentUUID": "b9b7ac53-2e43-4f10-bce0-4d55f2ac2305",
+              "uuid": "395ef85b-8a85-4832-a873-1ac72c9a3ab7",
+              "parentUUID": "87ac8728-1a55-427f-93ea-43ac55faa395",
               "isHook": true,
               "skipped": false
             }
@@ -448,7 +448,7 @@
               "title": "Should register a new user successfully",
               "fullTitle": "Testing API Routes Should register a new user successfully",
               "timedOut": false,
-              "duration": 24,
+              "duration": 25,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -457,8 +457,8 @@
               "context": null,
               "code": "chai\n  .request(app)\n  .post(\"/register\")\n  .send({ email: \"james@gmail.com\", password: \"testpassword\" })\n  .end((err, res) => {\n    expect(err).to.be.null;\n    expect(res).to.have.status(201);\n    done();\n    server.close();\n  });",
               "err": {},
-              "uuid": "6612f8ed-dd94-4576-a4da-3a713f87f7a7",
-              "parentUUID": "b9b7ac53-2e43-4f10-bce0-4d55f2ac2305",
+              "uuid": "171fdf12-90e6-4e15-bc8b-530aeb86e64c",
+              "parentUUID": "87ac8728-1a55-427f-93ea-43ac55faa395",
               "isHook": false,
               "skipped": false
             },
@@ -475,27 +475,27 @@
               "context": null,
               "code": "chai\n  .request(app)\n  .post(\"/login\")\n  .send({ email: orgContent[0].email, password: orgContent[0].password })\n  .end((err, res) => {\n    expect(err).to.be.null;\n    expect(res).to.have.status(201);\n    expect(res.body.message).to.equal(\"Login successful!\");\n    done();\n    server.close();\n  });",
               "err": {},
-              "uuid": "032f6c04-29a0-4fca-97f6-86a2bcb0dd0c",
-              "parentUUID": "b9b7ac53-2e43-4f10-bce0-4d55f2ac2305",
+              "uuid": "0fb7eb42-0960-467e-a174-c417c0ea1419",
+              "parentUUID": "87ac8728-1a55-427f-93ea-43ac55faa395",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "6612f8ed-dd94-4576-a4da-3a713f87f7a7",
-            "032f6c04-29a0-4fca-97f6-86a2bcb0dd0c"
+            "171fdf12-90e6-4e15-bc8b-530aeb86e64c",
+            "0fb7eb42-0960-467e-a174-c417c0ea1419"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 29,
+          "duration": 30,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "31fa3cda-9a1a-4179-8a5a-44519f2c2453",
+          "uuid": "61c6dd27-9523-46a3-940e-1803b9b7ce6c",
           "title": "Testing Register Function",
           "fullFile": "C:\\Users\\Chun Kang So\\Desktop\\Y2S2 Projects\\DVOPS\\DVOPS-Group-1\\tests\\userTests.test.js",
           "file": "\\tests\\userTests.test.js",
@@ -504,7 +504,7 @@
               "title": "\"before each\" hook in \"Testing Register Function\"",
               "fullTitle": "Testing Register Function \"before each\" hook in \"Testing Register Function\"",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": null,
               "speed": null,
               "pass": false,
@@ -513,8 +513,8 @@
               "context": null,
               "code": "orgContent = await fs.readFile(usersFilePath, \"utf8\");\norgContent = JSON.parse(orgContent);",
               "err": {},
-              "uuid": "579bc37c-1de9-4db9-b3ee-1e8384db79cb",
-              "parentUUID": "31fa3cda-9a1a-4179-8a5a-44519f2c2453",
+              "uuid": "9db0094a-aa6c-43a5-b20b-883a5d8db9e4",
+              "parentUUID": "61c6dd27-9523-46a3-940e-1803b9b7ce6c",
               "isHook": true,
               "skipped": false
             }
@@ -524,7 +524,7 @@
               "title": "\"after each\" hook in \"Testing Register Function\"",
               "fullTitle": "Testing Register Function \"after each\" hook in \"Testing Register Function\"",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": null,
               "speed": null,
               "pass": false,
@@ -533,8 +533,8 @@
               "context": null,
               "code": "await fs.writeFile(usersFilePath, JSON.stringify(orgContent), \"utf8\");",
               "err": {},
-              "uuid": "53c1ec65-9f17-4813-865a-15199a689711",
-              "parentUUID": "31fa3cda-9a1a-4179-8a5a-44519f2c2453",
+              "uuid": "d285efa8-6573-42ef-8aa9-34e4ba72b36e",
+              "parentUUID": "61c6dd27-9523-46a3-940e-1803b9b7ce6c",
               "isHook": true,
               "skipped": false
             }
@@ -544,7 +544,7 @@
               "title": "Should register a new user successfully",
               "fullTitle": "Testing Register Function Should register a new user successfully",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -553,8 +553,8 @@
               "context": null,
               "code": "// Mock request object with user registration data\nconst req = {\n    body: {\n        email: \"mary@gmail.com\",\n        password: \"123456\",\n    },\n};\n// Mock response object with assertions for successful registration\nconst res = {\n    status: function (code) {\n        expect(code).to.equal(201);\n        return this;\n    },\n    json: function (data) {\n        expect(data).to.have.lengthOf(orgContent.length + 1);\n        expect(data[orgContent.length].email).to.equal(req.body.email);\n        expect(data[orgContent.length].password).to.equal(req.body.password);\n    },\n};\n// Call the register function with the mock request and response\nawait register(req, res);",
               "err": {},
-              "uuid": "ac585fe2-a317-40c4-9963-19afde789282",
-              "parentUUID": "31fa3cda-9a1a-4179-8a5a-44519f2c2453",
+              "uuid": "0edb18c9-63d1-43c3-964d-d958610413fc",
+              "parentUUID": "61c6dd27-9523-46a3-940e-1803b9b7ce6c",
               "isHook": false,
               "skipped": false
             },
@@ -571,8 +571,8 @@
               "context": null,
               "code": "// Mock request object with invalid email format\nconst req = {\n    body: {\n        email: \"simon#gmail.com\",\n        password: \"123\",\n    },\n};\n// Mock response object with assertions for validation error\nconst res = {\n    status: function (code) {\n        expect(code).to.equal(500);\n        return this;\n    },\n    json: function (data) {\n        expect(data.message).to.equal(\"Validation error\");\n    },\n};\n// Call the register function with the mock request and response\nawait register(req, res);",
               "err": {},
-              "uuid": "0310e79c-faf3-4427-b255-2d29b2c0fae6",
-              "parentUUID": "31fa3cda-9a1a-4179-8a5a-44519f2c2453",
+              "uuid": "019ed075-b1b2-4555-8f15-179ff109183c",
+              "parentUUID": "61c6dd27-9523-46a3-940e-1803b9b7ce6c",
               "isHook": false,
               "skipped": false
             },
@@ -589,28 +589,28 @@
               "context": null,
               "code": "// Mock request object with a short password\nconst req = {\n    body: {\n        email: \"simon@gmail.com\",\n        password: \"123\",\n    },\n};\n// Mock response object with assertions for validation error\nconst res = {\n    status: function (code) {\n        expect(code).to.equal(500);\n        return this;\n    },\n    json: function (data) {\n        expect(data.message).to.equal(\"Validation error\");\n    },\n};\n// Call the register function with the mock request and response\nawait register(req, res);",
               "err": {},
-              "uuid": "bec98f8c-b41a-4a77-b70e-efe51f1ddc5a",
-              "parentUUID": "31fa3cda-9a1a-4179-8a5a-44519f2c2453",
+              "uuid": "e4756a63-c08e-40e3-bf77-859b28f80a71",
+              "parentUUID": "61c6dd27-9523-46a3-940e-1803b9b7ce6c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ac585fe2-a317-40c4-9963-19afde789282",
-            "0310e79c-faf3-4427-b255-2d29b2c0fae6",
-            "bec98f8c-b41a-4a77-b70e-efe51f1ddc5a"
+            "0edb18c9-63d1-43c3-964d-d958610413fc",
+            "019ed075-b1b2-4555-8f15-179ff109183c",
+            "e4756a63-c08e-40e3-bf77-859b28f80a71"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 2,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "cecf95c2-0b8a-42d8-aba7-c918e9572db4",
+          "uuid": "30bfdb2e-f391-4e41-a2e3-5e8cf11eca60",
           "title": "Testing Login Function",
           "fullFile": "C:\\Users\\Chun Kang So\\Desktop\\Y2S2 Projects\\DVOPS\\DVOPS-Group-1\\tests\\userTests.test.js",
           "file": "\\tests\\userTests.test.js",
@@ -628,8 +628,8 @@
               "context": null,
               "code": "orgContent = await fs.readFile(usersFilePath, \"utf8\");\norgContent = JSON.parse(orgContent);",
               "err": {},
-              "uuid": "2d93c8bd-9882-40b9-81ec-c9af09f38c56",
-              "parentUUID": "cecf95c2-0b8a-42d8-aba7-c918e9572db4",
+              "uuid": "cf27b317-5c35-4861-a675-427bba04d5f9",
+              "parentUUID": "30bfdb2e-f391-4e41-a2e3-5e8cf11eca60",
               "isHook": true,
               "skipped": false
             }
@@ -649,8 +649,8 @@
               "context": null,
               "code": "// Mock request object with valid login credentials\nconst req = {\n    body: {\n        email: orgContent[0].email,\n        password: orgContent[0].password,\n    },\n};\n// Mock response object with assertions for successful login\nconst res = {\n    status: function (code) {\n        expect(code).to.equal(201);\n        return this;\n    },\n    json: function (data) {\n        expect(data.message).to.equal(\"Login successful!\");\n    },\n};\n// Call the login function with the mock request and response\nawait login(req, res);",
               "err": {},
-              "uuid": "ee214eeb-28c8-4a58-8e3f-11df77e07f6a",
-              "parentUUID": "cecf95c2-0b8a-42d8-aba7-c918e9572db4",
+              "uuid": "1b3f3a42-e746-44e7-b137-25d813f1a502",
+              "parentUUID": "30bfdb2e-f391-4e41-a2e3-5e8cf11eca60",
               "isHook": false,
               "skipped": false
             },
@@ -667,16 +667,16 @@
               "context": null,
               "code": "// Mock request object with invalid password\nconst req = {\n    body: {\n        email: orgContent[0].email,\n        password: \"abcdefg\",\n    },\n};\n// Mock response object with assertions for invalid credentials\nconst res = {\n    status: function (code) {\n        expect(code).to.equal(500);\n        return this;\n    },\n    json: function (data) {\n        expect(data.message).to.equal(\"Invalid credentials!\");\n    },\n};\n// Call the login function with the mock request and response\nawait login(req, res);",
               "err": {},
-              "uuid": "fdf9056c-7574-423d-a975-7a7963b16d75",
-              "parentUUID": "cecf95c2-0b8a-42d8-aba7-c918e9572db4",
+              "uuid": "b4c9db5e-1bd4-45e7-b0fd-b077c39936ec",
+              "parentUUID": "30bfdb2e-f391-4e41-a2e3-5e8cf11eca60",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "ee214eeb-28c8-4a58-8e3f-11df77e07f6a",
-            "fdf9056c-7574-423d-a975-7a7963b16d75"
+            "1b3f3a42-e746-44e7-b137-25d813f1a502",
+            "b4c9db5e-1bd4-45e7-b0fd-b077c39936ec"
           ],
           "failures": [],
           "pending": [],
