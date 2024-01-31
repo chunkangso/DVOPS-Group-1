@@ -3,9 +3,9 @@ const incomes = JSON.parse(localStorage.getItem("incomes")) || [];
 
 // Number formatter for currency display
 const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    signDisplay: "always",
+  style: "currency",
+  currency: "USD",
+  signDisplay: "always",
 });
 
 // DOM elements
@@ -20,34 +20,34 @@ form.addEventListener("submit", addIncome);
 
 // Function to update total income
 function updateTotal() {
-    const incomeTotal = incomes.reduce((total, trx) => total + trx.amount, 0);
+  const incomeTotal = incomes.reduce((total, trx) => total + trx.income_amount, 0);
 
-    // Update DOM elements with formatted currency values
-    income.textContent = formatter.format(incomeTotal).substring(1);
+  // Update DOM elements with formatted currency values
+  income.textContent = formatter.format(incomeTotal).substring(1);
 }
 
 
 // Function to render the income list
 function renderList() {
-    list.innerHTML = "";
+  list.innerHTML = "";
 
-    status.textContent = "";
-    if (incomes.length === 0) {
-        status.textContent = "No income found.";
-        return;
-    }
-    incomes.forEach(({ id, name, amount, date }) => {
-        const li = document.createElement("li");
+  status.textContent = "";
+  if (incomes.length === 0) {
+    status.textContent = "No income found.";
+    return;
+  }
+  incomes.forEach(({ id, income_name, income_amount, income_date }) => {
+    const li = document.createElement("li");
 
-        // Populate list item with income details
-        li.innerHTML = `
+    // Populate list item with income details
+    li.innerHTML = `
       <div class="name">
-        <h4>${name}</h4>
-        <p>${new Date(date).toLocaleDateString()}</p>
+        <h4>${income_name}</h4>
+        <p>${new Date(income_date).toLocaleDateString()}</p>
       </div>
 
       <div class="amount income">
-        <span>${formatter.format(amount)}</span>
+        <span>${formatter.format(income_amount)}</span>
       </div>
     
       <div class="action">
@@ -57,9 +57,9 @@ function renderList() {
       </div>
     `;
 
-        // Append list item to the income list
-        list.appendChild(li);
-    });
+    // Append list item to the income list
+    list.appendChild(li);
+  });
 
 }
 
@@ -69,45 +69,45 @@ updateTotal();
 
 // Function to delete an income by ID
 function deleteIncome(id) {
-    const index = incomes.findIndex((trx) => trx.id === id);
-    incomes.splice(index, 1);
+  const index = incomes.findIndex((trx) => trx.id === id);
+  incomes.splice(index, 1);
 
-    // Update total, save incomes, and re-render the list
-    updateTotal();
-    saveIncomes();
-    renderList();
+  // Update total, save incomes, and re-render the list
+  updateTotal();
+  saveIncomes();
+  renderList();
 }
 
 // Function to add a new income
 function addIncome(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // Get form data
-    const formData = new FormData(this);
+  // Get form data
+  const formData = new FormData(this);
 
-    // Add new income to the array
-    incomes.push({
-        id: incomes.length + 1,
-        name: formData.get("name"),
-        amount: parseFloat(formData.get("amount")),
-        date: new Date(formData.get("date")),
-    });
+  // Add new income to the array
+  incomes.push({
+    id: incomes.length + 1,
+    income_name: formData.get("income_name"),
+    income_amount: parseFloat(formData.get("income_amount")),
+    income_date: new Date(formData.get("income_date")),
+  });
 
-    // Reset the form
-    this.reset();
+  // Reset the form
+  this.reset();
 
-    // Update total, save incomes, and re-render the list
-    updateTotal();
-    saveIncomes();
-    renderList();
+  // Update total, save incomes, and re-render the list
+  updateTotal();
+  saveIncomes();
+  renderList();
 }
 
 
 // Function to save incomes to local storage
 function saveIncomes() {
-    // Sort incomes by date in descending order
-    incomes.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Sort incomes by date in descending order
+  incomes.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // Save incomes to local storage
-    localStorage.setItem("incomes", JSON.stringify(incomes));
+  // Save incomes to local storage
+  localStorage.setItem("incomes", JSON.stringify(incomes));
 }
