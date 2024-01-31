@@ -87,7 +87,7 @@ describe('Testing Income related features', () => {
     // Test Case: Able to edit an income successfully
     it('Able to edit an income successfully', async () => {
         const req = {
-            params: { id: 1700988013726289 },
+            params: { id: 1706728421915975 },
             body: {
                 name: "Test edits",
                 description: "Editted this through testing case",
@@ -147,7 +147,7 @@ describe('Testing Income related features', () => {
     // Test Case: Able to delete an income successfully
     it('Able to delete an income successfully', async () => {
         const req = {
-            params: { id: 1700988013726289 }
+            params: { id: 1706728421915975 }
         };
 
         const res = {
