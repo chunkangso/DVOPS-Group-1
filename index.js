@@ -3,8 +3,7 @@ var bodyParser = require("body-parser");
 var app = express();
 
 const PORT = process.env.PORT || 5050;
-// This is where the starting page is, for DVOPS, its just the 3 functions.
-var startPage = "add-expense.html";
+var startPage = "index.html";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
