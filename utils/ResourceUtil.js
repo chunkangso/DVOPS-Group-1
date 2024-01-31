@@ -1,5 +1,7 @@
 const { readJSON, writeJSON } = require("./UserUtil");
 const { Resource } = require("../models/Resource");
+const fs = require('fs').promises;
+
 async function addResource(req, res) {
   try {
     const name = req.body.name;
