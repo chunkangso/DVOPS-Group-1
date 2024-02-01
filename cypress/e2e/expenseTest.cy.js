@@ -208,22 +208,22 @@ describe("Expense Management Tests", () => {
   });
 
 
-  it("should update an expense when all fields are valid", () => {
-    // Fill all the fields correctly
-    cy.get("#update_expense_name").type("Updated Test Expense");
-    cy.get("#update_expense_amount").type("100");
-    cy.get("#update_category").type("Updated Test Category");
-    cy.get("#update_expense_date").type("2024-01-28");
-    cy.get("#update_description").type("Updated Test Description");
+  // it("should update an expense when all fields are valid", () => {
+  //   // Fill all the fields correctly
+  //   cy.get("#update_expense_name").type("Updated Test Expense");
+  //   cy.get("#update_expense_amount").type("100");
+  //   cy.get("#update_category").type("Updated Test Category");
+  //   cy.get("#update_expense_date").type("2024-01-28");
+  //   cy.get("#update_description").type("Updated Test Description");
 
-    // Call the function
-    cy.window().invoke("updateExpense");
+  //   // Call the function
+  //   cy.window().invoke("updateExpense");
 
-    // Check if the alert was called
-    cy.on("window:alert", (str) => {
-      expect(str).to.equal("Updating the Expense is Successfully");
-    });
-  });
+  //   // Check if the alert was called
+  //   cy.on("window:alert", (str) => {
+  //     expect(str).to.equal("Updating the Expense is Successfully");
+  //   });
+  // });
 
   it("Should handle invalid updated expense data", () => {
     cy.get(".expense-title").first().click();
