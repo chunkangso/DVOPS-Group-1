@@ -1,7 +1,7 @@
 // Importing necessary modules
 var express = require("express");
 var bodyParser = require("body-parser");
-
+const logger = require("./logger");
 // Creating an Express application
 var app = express();
 
@@ -18,6 +18,9 @@ app.use(bodyParser.json());
 // Serving static files from the 'public' directory
 app.use(express.static("./public"));
 
+const statusMonitor = require("express-status-monitor");
+app.use(statusMonitor());
+
 const { register, login } = require("./utils/UserUtil");
 app.post("/register", register);
 app.post("/login", login);
@@ -32,13 +35,17 @@ app.get("/", (req, res) => {
 });
 
 // Importing the required functions from the 'TransactionUtil' module
-const { addIncome, editIncome, deleteIncome } = require('./utils/TransactionUtil')
+const {
+  addIncome,
+  editIncome,
+  deleteIncome,
+} = require("./utils/TransactionUtil");
 // Handling POST requests to the '/add-income' endpoint by calling the 'addIncome' function
-app.post('/add-income', addIncome);
+app.post("/add-income", addIncome);
 // Handling PUT requests to the '/edit-income' endpoint by calling the 'editIncome' function
-app.put('/edit-income/:id', editIncome);
+app.put("/edit-income/:id", editIncome);
 // Handling DELETE requests to the '/delete-income' endpoint by calling the 'deleteIncome' function
-app.delete('/delete-income/:id', deleteIncome);
+app.delete("/delete-income/:id", deleteIncome);
 
 // Importing the required functions from the 'ExpenseUtil' module
 const {
@@ -59,5 +66,7 @@ app.delete("/delete-expense/:id", deleteExpense);
 app.listen(PORT, function () {
   // Logging a message when the server is successfully started
   console.log(`Demo project at: ${PORT}!`);
+  logger.info(`Demo project at: ${PORT}!`);
+  logger.error(`Example or error log`);
 });
 //Leeee
