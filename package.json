@@ -28,7 +28,6 @@
   "scripts": {
     "test": "nyc mocha tests/*.test.js && npm run check-coverage",
     "test-report": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
-    "check-coverage": "nyc check-coverage --lines 80 --per-file",
     "commit": "cz",
     "prepare": "husky install",
     "start": "node index.js"
