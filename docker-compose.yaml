@@ -4,5 +4,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: chunkangso/rms-docker-img:latest
+    image: chunkangso/rms-docker-img:v4
     container_name: rms-docker-container
