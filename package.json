@@ -26,10 +26,11 @@
     "reporter": "mochawesome"
   },
   "scripts": {
-    "test": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
-    "test-report": "nyc mocha tests/*.test.js --reporter mochawesome",
+    "test": "nyc mocha tests/*.test.js && npm run check-coverage",
+    "test-report": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
     "commit": "cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -39,14 +40,16 @@
     "chai-http": "^4.4.0",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0"
+    "mocha": "^10.2.0"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.12.19",
     "commitizen": "^4.3.0",
+    "cypress": "^13.6.4",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
-    "mochawesome": "^7.1.3"
+    "mochawesome": "^7.1.3",
+    "nyc": "^15.1.0"
   },
   "config": {
     "commitizen": {
