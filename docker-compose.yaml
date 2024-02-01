@@ -1,0 +1,8 @@
+version: "3"
+services:
+  build-rms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: swanhtetaung/budget-buddy-v1-img:latest
+    container_name: budget-buddy-docker-container

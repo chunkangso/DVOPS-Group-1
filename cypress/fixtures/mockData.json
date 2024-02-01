@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Test Expense",
+    "description": "Test Description",
+    "amount": 100,
+    "category": "Test Category",
+    "username": "Testing",
+    "date": "2024-01-28",
+    "id": "1706521362368572",
+    "type": "expense"
+  },
+  {
+    "name": "Test Expense 1",
+    "description": "Test Description",
+    "amount": 200,
+    "category": "Test Category",
+    "username": "Testing",
+    "date": "2024-01-28",
+    "id": "1706521362368572",
+    "type": "expense"
+  }
+]

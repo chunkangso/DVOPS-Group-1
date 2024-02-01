@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/expense.js"></script>
+    <title>Expense</title>
+  </head>
+  <body onload="updateTotalExpense()">
+    <div style="display: inline-flex">
+      <div class="sidebar">
+        <div class="profile-section">
+          <img
+            src="images/logo.png"
+            alt="Profile Picture"
+            class="profile-picture"
+          />
+        </div>
+
+        <ul class="navigation-items">
+          <li class="navigation-item">
+           <a href="transactions.html">
+            <i class="fas fa-exchange-alt"></i> View Transactions
+           </a>
+          </li>
+          <li class="navigation-item">
+            <i class="fas fa-arrow-up"></i> Income
+          </li>
+          <li class="navigation-item">
+            <i class="fas fa-arrow-down"></i> Expenses
+          </li>
+        </ul>
+      </div>
+
+      <div class="content">
+        
+        <div id="totalExpenseBox">
+          <p id="totalExpense"></p>
+        </div>
+
+
+        <div style="display: flex; flex-direction: row">
+         <div>
+          <h1>Add Expense</h1>
+
+          <!-- Expense Form -->
+          <form action="/submit_expense" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+              <!-- Expense Name Field -->
+              <input
+                type="text"
+                id="expense_name"
+                name="expense_name"
+                placeholder="Enter Expense Name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <!-- Expense Amount Field -->
+              <input
+                type="number"
+                id="expense_amount"
+                name="expense_amount"
+                placeholder="Enter Expense Amount"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <!-- Enter a Category Field -->
+              <input
+                type="text"
+                id="category"
+                name="category"
+                placeholder="Enter Category"
+                required
+              />
+            </div>
+
+            <div
+              class="form-group"
+              style="display: flex; flex-direction: column"
+            >
+              <!-- Enter Date Field -->
+              <label for="expense_date">Enter Date:</label>
+              <div style="height: 10px"></div>
+              <input type="date" id="expense_date" name="expense_date" required/>
+            </div>
+
+            <div
+              class="form-group"
+              style="display: flex; flex-direction: column"
+            >
+              <!-- Enter Description Field -->
+              <label for="description">Enter Description:</label>
+              <div style="height: 10px"></div>
+              <textarea id="description" name="description" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="validateAndAddExpense()">Add Expense</button>
+          </form>
+        </div>
+        <div id="expensesContainer"></div>
+      </div>
+    </div>
+  </body>
+</html>

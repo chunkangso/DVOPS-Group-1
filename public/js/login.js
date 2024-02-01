@@ -15,7 +15,7 @@ function login() {
     console.log(response);
     if (response.message == "Login successful!") {
       sessionStorage.setItem("email", jsonData.email);
-      window.location.href = "home.html";
+      window.location.href = "add-expense.html";
     } else {
       document.getElementById("error").innerHTML = "Invalid credentials!";
     }

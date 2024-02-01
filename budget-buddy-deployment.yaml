@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: budget-buddy-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: budget-buddy-v1-img
+  template:
+    metadata:
+      labels:
+        app: budget-buddy-v1-img
+    spec:
+      containers:
+      - name: budget-buddy-docker-container
+        image: swanhtetaung/budget-buddy-v1-img:latest
+        ports:
+        - containerPort: 5050
