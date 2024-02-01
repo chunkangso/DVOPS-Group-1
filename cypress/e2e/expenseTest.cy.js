@@ -209,7 +209,6 @@ describe("Expense Management Tests", () => {
 
 
   it("should update an expense when all fields are valid", () => {
-    cy.get(".expense-title").first().click();
     // Fill all the fields correctly
     cy.get("#update_expense_name").type("Updated Test Expense");
     cy.get("#update_expense_amount").type("100");
