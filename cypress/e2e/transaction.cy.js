@@ -23,7 +23,7 @@ describe('Transaction Page Tests', () => {
           statusCode: 500,
           body: { error: 'Server error' }
         }).as('fetchTransactionsFail');
-        cy.visit('/view-transactions.html'); // Replace with the actual path
+        cy.visit('localhost:5050/instrumented/view-transactions.html'); // Replace with the actual path
         cy.wait('@fetchTransactionsFail');
         cy.get('#error').should('exist').and('be.visible'); // Assuming an element with id="error" is shown upon error
       });

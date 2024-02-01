@@ -1,6 +1,6 @@
 async function fetchTransactions() {
   try {
-    const response = await fetch("/view-transactions"); 
+    const response = await fetch("/view-transactions"); // Replace with your API endpoint
     const transactions = await response.json();
 
     let totalExpenses = 0;
@@ -37,16 +37,5 @@ async function fetchTransactions() {
       .querySelector("p").textContent = `$${totalIncomes}`;
   } catch (error) {
     console.error("Error fetching transactions:", error);
-
-    let errorElement = document.getElementById("error");
-
-    if (!errorElement) {
-      errorElement = document.createElement("div");
-      errorElement.id = "error";
-
-      document.body.appendChild(errorElement);
-    }
-
-    errorElement.textContent = "Error fetching transactions: " + error.message;
   }
 }

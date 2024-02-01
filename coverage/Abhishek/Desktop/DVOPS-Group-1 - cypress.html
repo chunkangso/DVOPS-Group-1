@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for public/js/login.js</title>
+    <title>Code coverage report for Abhishek/Desktop/DVOPS-Group-1 - cypress</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">public/js</a> login.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Abhishek/Desktop</a> DVOPS-Group-1 - cypress</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -81,65 +81,50 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function login() {
-  var response = "";
-  var jsonData = new Object();
-  jsonData.email = document.getElementById("email").value;
-  jsonData.password = document.getElementById("password").value;
-  if (jsonData.email == "" || jsonData.password == "") {
-    document.getElementById("error").innerHTML = "All fields are required!";
-    return;
-  }
-  var request = new XMLHttpRequest();
-  request.open("POST", "/login", true);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.onload = function () {
-    response = JSON.parse(request.responseText);
-    console.log(response);
-    if (response.message == "Login successful!") {
-      sessionStorage.setItem("email", jsonData.email);
-      window.location.href = "home.html";
-    } else {
-      document.getElementById("error").innerHTML = "Invalid credentials!";
-    }
-  };
-  request.send(JSON.stringify(jsonData));
-}</pre></td></tr></table></pre>
+<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span>
+<span class="cline-any cline-no">0</span></td><td class="text"><pre class="prettyprint lang-js">Unable to lookup source: C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress (EISDIR: illegal operation on a directory, read)
+Error: Unable to lookup source: C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress (EISDIR: illegal operation on a directory, read)
+    at Context.defaultSourceLookup [as sourceFinder] (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\context.js:17:15)
+    at Context.getSource (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\context.js:71:21)
+    at annotateSourceCode (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-reports\lib\html\annotator.js:249:40)
+    at HtmlReport.onDetail (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-reports\lib\html\index.js:414:33)
+    at Visitor.value (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:38:38)
+    at ReportNode.visit (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:88:21)
+    at C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:92:19
+    at Array.forEach (<anonymous>)
+    at ReportNode.visit (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:91:28)
+    at C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:92:19
+    at Array.forEach (<anonymous>)
+    at ReportNode.visit (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:91:28)
+    at ReportTree.visit (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\tree.js:127:24)
+    at HtmlReport.execute (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\istanbul-lib-report\lib\report-base.js:12:44)
+    at C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\nyc\index.js:467:10
+    at Array.forEach (<anonymous>)
+    at NYC.report (C:\Users\Abhishek\Desktop\DVOPS-Group-1 - cypress\node_modules\nyc\index.js:461:19)</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-02-01T06:50:52.920Z
+                at 2024-02-01T06:36:49.825Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
