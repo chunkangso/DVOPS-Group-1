@@ -86,7 +86,7 @@ describe("Testing expense related features", () => {
   // Test case: Should edit an expense successfully
   it("Should edit an expense successfully", async () => {
     const req = {
-      params: { id: 1700994740174044 },
+      params: { id: 1706728421915975 },
       body: {
         name: "Groceries",
         description: "Weekly grocery shopping",
@@ -146,7 +146,7 @@ describe("Testing expense related features", () => {
   // Test case: Should delete an expense successfully
   it("Should delete an expense successfully", async () => {
     const req = {
-      params: { id: 1700994740174044 },
+      params: { id: 1706728421915975 },
     };
 
     const res = {
