@@ -5,7 +5,121 @@
 .register{
     background-color: #1495FF;
 }
-=======
-    background-color: aliceblue;
-    }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a202c;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+.sidebar {
+    width: 25%;
+    background-color: #2d3748;
+    padding: 20px;
+}
+.main-content {
+    margin-top: 50px;
+    width: 75%;
+    padding: 20px;
+    margin-left: 250px;
+}
+.card {
+    background-color: #252B35;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.card h3 {
+    margin: 0 0 10px 0;
+}
+.card p {
+    font-size: 1.5em;
+    margin: 0;
+}
+.transactions {
+    margin-top: 30px;
+}
+.transaction {
+    background-color: #252B35;
+    padding: 15px;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background: #001628;
+    color: #eceff1;
+    padding-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+   
+  .profile-section {
+    text-align: center;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+  }
+   
+  .profile-picture {
+    width: 150px;
+    height: 80px;
+  }
+   
+  .user-name {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #37474f;
+  }
+   
+  .navigation-items {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+  }
+   
+  .navigation-item {
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+   
+  .navigation-item i {
+    margin-right: 10px;
+  }
+   
+  .navigation-item:hover {
+    background-color: #546e7a;
+  }
+
+  .navigation-item:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease-in-out;
+  }
+   
+#expenses{
+    margin-right: 150px;
+    width: 200px;
+    border-radius: 20px;
+}
+#expenses p{
+    color: red
+}
+
+#incomes{
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 60px;
+}
+#incomes p{
+    color: #66ff66;
+}
