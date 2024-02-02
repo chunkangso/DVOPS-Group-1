@@ -1,3 +1,5 @@
+const { describe } = require("mocha");
+
 // Describe block for the entire test suite related to Income Management
 describe("Income Management Tests", () => {
 
@@ -5,6 +7,7 @@ describe("Income Management Tests", () => {
     beforeEach(() => {
         // Intercept API call to fetch transactions and provide mock data
         cy.intercept("/get-transactions", { fixture: "mockData.json" }).as("getTransactions");
+        cy.log("Intercepting API call with mock data");
 
         // Visit the income management page with some pre-configuration
         cy.visit("localhost:5050/instrumented/add-income.html", {
@@ -299,7 +302,7 @@ describe("Income Management Tests", () => {
         // Verify the existence of income elements in the DOM after transactions API call
         cy.window().then((win) => {
             cy.wait("@getTransactions");
-            cy.get(".income").should("have.length", 2);
+            cy.get("income").should("have.length", 2);
         });
     });
 });
