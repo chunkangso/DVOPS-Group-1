@@ -92,7 +92,6 @@ function updateExpense() {
   request.onload = function () {
     response = JSON.parse(request.responseText);
  
-    /* istanbul ignore else */
     if (response.message == "Expense modified successfully!") {
       alert("Updating the Expense is Successfully");
       window.location.href = "add-expense.html";

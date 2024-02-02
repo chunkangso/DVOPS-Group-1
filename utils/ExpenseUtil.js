@@ -36,8 +36,6 @@ async function addExpense(req, res) {
 
 // function to handle the editing of an expense based on its ID
 async function editExpense(req, res) {
-    try {
-        // Extracting parameters from the request
         const id = req.params.id;
         const name = req.body.name;
         const description = req.body.description;
@@ -80,15 +78,11 @@ async function editExpense(req, res) {
             // Sending an error response if no modification occurred
             return res.status(500).json({ message: 'Error occurred, unable to modify!' });
         }
-    } catch (error) {
-        // Handling errors during the expense modification process
-        return res.status(500).json({ message: error.message });
-    }
+    
 }
 
 // Function to handle the deletion of an expense based on its ID
 async function deleteExpense(req, res) {
-    try {
         // Extracting the ID parameter from the request
         const id = req.params.id;
 
@@ -120,10 +114,7 @@ async function deleteExpense(req, res) {
             // Sending an error response if the specified expense was not found
             return res.status(500).json({ message: 'Error occurred, unable to delete!' });
         }
-    } catch (error) {
-        // Handling errors during the expense deletion process
-        return res.status(500).json({ message: error.message });
-    }
+   
 }
 
 
