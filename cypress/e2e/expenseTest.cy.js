@@ -108,6 +108,90 @@ describe("Expense Management Tests", () => {
       expect(win.location.href).to.include("update-expense.html");
     });
   });
+  it("should populate the form with the related expense details", () => {
+    cy.visit("localhost:5050/instrumented/add-expense.html");
+
+    cy.get(".expense-title").first().click();
+
+    cy.window((win) => {
+      const expense = JSON.parse(win.sessionStorage.getItem("expense"));
+
+      cy.get("#update_expense_name").should("have.value", expense.name);
+      cy.get("#update_expense_amount").should("have.value", expense.amount);
+      cy.get("#update_category").should("have.value", expense.category);
+      cy.get("#update_expense_date").should("have.value", expense.date);
+      cy.get("#update_description").should("have.value", expense.description);
+
+      // Check that the URL is correct
+      expect(win.location.href).to.include("update-expense.html");
+    });
+  });
+
+  it("should update an expense when all fields are valid", () => {
+    cy.visit("localhost:5050/instrumented/add-expense.html");
+
+    cy.get(".expense-title").first().click();
+
+    cy.window().then((win) => {
+      win.sessionStorage.setItem("id", "1706755046197937");
+    });
+    cy.get("#update_expense_name").clear();
+    cy.get("#update_expense_amount").clear();
+    cy.get("#update_category").clear();
+    cy.get("#update_expense_date").clear();
+    cy.get("#update_description").clear();
+
+    cy.get("#update_expense_name").type("Updated Test Expense");
+    cy.get("#update_expense_amount").type("100");
+    cy.get("#update_category").type("Updated Test Category");
+    cy.get("#update_expense_date").type("2024-01-28");
+    cy.get("#update_description").type("Updated Test Description");
+    cy.window().invoke("updateExpense");
+    cy.on("window:alert", (str) => {
+      expect(str).to.equal("Updating the Expense is Successfully");
+    });
+
+    cy.url().should("include", "add-expense.html");
+  });
+  it("should show invalid update expense", () => {
+    cy.get(".expense-title").first().click();
+
+    cy.window().then((win) => {
+      win.sessionStorage.setItem("id", "3");
+    });
+
+    cy.get("#update_expense_name").type("Updated Test Expense");
+    cy.get("#update_expense_amount").type("100");
+    cy.get("#update_category").type("Updated Test Category");
+    cy.get("#update_expense_date").type("2024-01-28");
+    cy.get("#update_description").type("Updated Test Description");
+
+    // Call the function
+    cy.window().invoke("updateExpense");
+
+    // Check if the alert was called
+    cy.on("window:alert", (str) => {
+      expect(str).to.equal("Error updating the Expense. Please try again.");
+    });
+  });
+
+  it("Should handle missing updated expense data", () => {
+    cy.get(".expense-title").first().click();
+    cy.get("#update_expense_name").type("Test Expense");
+    cy.get("#update_expense_amount").type("100");
+    cy.get("#update_category").clear();
+    cy.get("#update_expense_date").type("2024-01-28");
+    cy.get("#update_description").type("Test Description");
+
+    // Call the function
+    cy.window().invoke("updateExpense");
+
+    // Check if the alert was called
+    cy.on("window:alert", (str) => {
+      expect(str).to.equal("Please fill in all required fields.");
+    });
+  });
+
   it("should delete an expense when confirmation is given", () => {
     // Intercept the DELETE request and stub its response
     cy.intercept("DELETE", "/delete-expense/*", {
@@ -182,90 +266,9 @@ describe("Expense Management Tests", () => {
     cy.url().should("include", "add-expense.html");
   });
 
-  it("should populate the form with the related expense details", () => {
-    cy.visit("localhost:5050/instrumented/add-expense.html");
 
-    cy.get(".expense-title").first().click();
 
-    cy.window((win) => {
-      const expense = JSON.parse(win.sessionStorage.getItem("expense"));
 
-      cy.get("#update_expense_name").should("have.value", expense.name);
-      cy.get("#update_expense_amount").should("have.value", expense.amount);
-      cy.get("#update_category").should("have.value", expense.category);
-      cy.get("#update_expense_date").should("have.value", expense.date);
-      cy.get("#update_description").should("have.value", expense.description);
-
-      // Check that the URL is correct
-      expect(win.location.href).to.include("update-expense.html");
-    });
-  });
-
-  it("should update an expense when all fields are valid", () => {
-    cy.visit("localhost:5050/instrumented/add-expense.html");
-
-    cy.get(".expense-title").first().click();
-
-    cy.window().then((win) => {
-      win.sessionStorage.setItem("id", "1706755046197937");
-    });
-    cy.get("#update_expense_name").clear();
-    cy.get("#update_expense_amount").clear();
-    cy.get("#update_category").clear();
-    cy.get("#update_expense_date").clear();
-    cy.get("#update_description").clear();
-
-    cy.get("#update_expense_name").type("Updated Test Expense");
-    cy.get("#update_expense_amount").type("100");
-    cy.get("#update_category").type("Updated Test Category");
-    cy.get("#update_expense_date").type("2024-01-28");
-    cy.get("#update_description").type("Updated Test Description");
-    cy.window().invoke("updateExpense");
-    cy.on("window:alert", (str) => {
-      expect(str).to.equal("Updating the Expense is Successfully");
-    });
-
-    cy.url().should("include", "add-expense.html");
-  });
-
-  it("should show invalid update expense", () => {
-    cy.get(".expense-title").first().click();
-
-    cy.window().then((win) => {
-      win.sessionStorage.setItem("id", "3");
-    });
-
-    cy.get("#update_expense_name").type("Updated Test Expense");
-    cy.get("#update_expense_amount").type("100");
-    cy.get("#update_category").type("Updated Test Category");
-    cy.get("#update_expense_date").type("2024-01-28");
-    cy.get("#update_description").type("Updated Test Description");
-
-    // Call the function
-    cy.window().invoke("updateExpense");
-
-    // Check if the alert was called
-    cy.on("window:alert", (str) => {
-      expect(str).to.equal("Error updating the Expense. Please try again.");
-    });
-  });
-
-  it("Should handle missing updated expense data", () => {
-    cy.get(".expense-title").first().click();
-    cy.get("#update_expense_name").type("Test Expense");
-    cy.get("#update_expense_amount").type("100");
-    cy.get("#update_category").clear();
-    cy.get("#update_expense_date").type("2024-01-28");
-    cy.get("#update_description").type("Test Description");
-
-    // Call the function
-    cy.window().invoke("updateExpense");
-
-    // Check if the alert was called
-    cy.on("window:alert", (str) => {
-      expect(str).to.equal("Please fill in all required fields.");
-    });
-  });
 
   it("should calculate total expense correctly", () => {
     cy.window().then((win) => {

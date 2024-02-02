@@ -1,29 +1,34 @@
 terraform {
-    required_providers {
-azurerm = {
-source = "hashicorp/azurerm"
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+    }
+  }
 }
-}
-}
+
 provider "azurerm" {
-features {}
+  features {}
 }
+
 resource "azurerm_resource_group" "dvopsResourceGroupNew" {
-name = "dvopsResourceGroupNew"
-location = "East US"
+  name     = "dvopsResourceGroupNew"
+  location = "East US"
 }
+
 resource "azurerm_kubernetes_cluster" "dvopsAKSCluster" {
-name = "dvopsAKSCluster"
-location = azurerm_resource_group.dvopsResourceGroupNew.location
-resource_group_name = azurerm_resource_group.dvopsResourceGroupNew.name
-dns_prefix = "budget-buddy-aks"
-default_node_pool {
-name = "default"
-node_count = 1
-vm_size = "Standard_DS2_v2"
-}
-service_principal {
-client_id = "204139ba-add0-4b65-8b7a-69d27e53ee00"
-client_secret = "Aof8Q~XXF_LYeIwkT3WVUAJE._naRnwcJMRKpdsw"
-}
+  name                = "dvopsAKSCluster"
+  location            = azurerm_resource_group.dvopsResourceGroupNew.location
+  resource_group_name = azurerm_resource_group.dvopsResourceGroupNew.name
+  dns_prefix          = "budget-buddy-aks"
+
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "Standard_DS2_v2"
+  }
+
+  service_principal {
+    client_id     = "c7faa4ba-c159-4167-a923-7cf5a967953c"
+    client_secret = "9ee83ace-de47-4149-a38e-001633f10f6b"
+  }
 }
