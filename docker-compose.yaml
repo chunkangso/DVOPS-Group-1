@@ -4,5 +4,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: swanhtetaung/budget-buddy-v1-img:v5
+    image: swanhtetaung/budget-buddy-v1-img:v6
     container_name: budget-buddy-docker-container

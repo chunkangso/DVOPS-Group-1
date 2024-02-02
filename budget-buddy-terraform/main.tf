@@ -29,6 +29,6 @@ resource "azurerm_kubernetes_cluster" "dvopsAKSCluster" {
 
   service_principal {
     client_id     = "c7faa4ba-c159-4167-a923-7cf5a967953c"
-    client_secret = "9ee83ace-de47-4149-a38e-001633f10f6b"
+    client_secret = "HNE8Q~JWiZ6MGqXEBZk0bX4ZJKgBW9zJt-vJpblB"
   }
 }
