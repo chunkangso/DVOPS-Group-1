@@ -8,7 +8,8 @@
       "utils/ExpenseUtil.js",
       "utils/TransactionUtil.js",
       "utils/UserUtil.js",
-      "index.js"
+      "index.js",
+      "public/**/*.js"
     ],
     "exclude": [],
     "reporter": [
