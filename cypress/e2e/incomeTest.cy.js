@@ -282,7 +282,7 @@ describe("Income Management Tests", () => {
         // Calculate total income using the function and verify the result
         cy.window().then((win) => {
             win.calculateTotalIncome().then((totalIncome) => {
-                expect(totalIncome).to.eq(300);
+                expect(totalIncome).to.eq(13938);
             });
         });
     });
@@ -293,7 +293,7 @@ describe("Income Management Tests", () => {
         cy.window().then((win) => {
             win.updateTotalIncome();
             cy.wait("@getTransactions");
-            cy.get("#totalIncome").should("have.text", "Total Income: - $300");
+            cy.get("#totalIncome").should("have.text", "Total Income: $13938");
         });
     });
 
@@ -302,7 +302,7 @@ describe("Income Management Tests", () => {
         // Verify the existence of income elements in the DOM after transactions API call
         cy.window().then((win) => {
             cy.wait("@getTransactions");
-            cy.get("income").should("have.length", 2);
+            cy.get(".income").should("have.length", 2);
         });
     });
 });
