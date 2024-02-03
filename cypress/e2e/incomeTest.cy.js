@@ -27,19 +27,19 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Verify the correctness of the page title
-    it("displays the correct page title", () => {
+    it("Displays the correct page title", () => {
         cy.title().should("eq", "Add Income");
     });
 
     // Test case: Verify the presence and correctness of navigation items
-    it("displays the correct navigation items", () => {
+    it("Displays the correct navigation items", () => {
         cy.get(".navigation-item").first().should("contain", "View Transactions");
         cy.get(".navigation-item").eq(1).should("contain", "Income");
         cy.get(".navigation-item").last().should("contain", "Expenses");
     });
 
     // Test case: Add an income when all fields are valid
-    it("should add an income when all fields are valid", () => {
+    it("Should add an income when all fields are valid", () => {
         // Enter valid income data
         cy.get("#income_name").type("Test Income");
         cy.get("#income_amount").type("9191");
@@ -77,7 +77,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Handle invalid income amount
-    it("should handle invalid income amount", () => {
+    it("Should handle invalid income amount", () => {
         // Enter valid data but with a negative income amount
         cy.get("#income_name").type("Test Income");
         cy.get("#income_amount").type("-9191");
@@ -95,7 +95,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Store the id and related information in session storage
-    it("should store the id and its related information in session storage", () => {
+    it("Should store the id and its related information in session storage", () => {
         // Click on the first income title and wait for the transactions API call
         cy.get(".income-title").first().click();
         cy.wait("@getTransactions");
@@ -112,7 +112,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Populate the form with related income details
-    it("should populate the form with the related income details", () => {
+    it("Should populate the form with the related income details", () => {
         // Visit the page to reset any previous state
         cy.visit("localhost:5050/instrumented/add-income.html");
         // Click on the first income title
@@ -133,7 +133,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Update an income when all fields are valid
-    it("should update an income when all fields are valid", () => {
+    it("Should update an income when all fields are valid", () => {
         // Visit the page to reset any previous state
         cy.visit("localhost:5050/instrumented/add-income.html");
         // Click on the first income title to simulate selecting an income for update
@@ -170,7 +170,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Show invalid update income
-    it("should show invalid update income", () => {
+    it("Should show invalid update income", () => {
         // Click on the first income title to simulate selecting an income for update
         cy.get(".income-title").first().click();
 
@@ -216,7 +216,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Delete an income when confirmation is given
-    it("should delete an income when confirmation is given", () => {
+    it("Should delete an income when confirmation is given", () => {
         // Intercept the DELETE request for deleting an income
         cy.intercept("DELETE", "/delete-income/*", {
             statusCode: 200,
@@ -249,7 +249,7 @@ describe("Income Management Tests", () => {
     // ... (Continue commenting for each test case)
 
     // Test case: Handle an error when the server response is not successful
-    it("should handle an error when the server response is not successful", () => {
+    it("Should handle an error when the server response is not successful", () => {
         // Confirm deletion when the confirmation dialog appears
         cy.on("window:confirm", () => true);
 
@@ -278,7 +278,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Calculate total income correctly
-    it("should calculate total income correctly", () => {
+    it("Should calculate total income correctly", () => {
         // Calculate total income using the function and verify the result
         cy.window().then((win) => {
             win.calculateTotalIncome().then((totalIncome) => {
@@ -288,7 +288,7 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Update the DOM with the correct total income
-    it("should update the DOM with the correct total income", () => {
+    it("Should update the DOM with the correct total income", () => {
         // Update the total income in the DOM and verify the displayed value
         cy.window().then((win) => {
             win.updateTotalIncome();
@@ -298,12 +298,80 @@ describe("Income Management Tests", () => {
     });
 
     // Test case: Create income elements in the DOM
-    it("should create income elements in the DOM", () => {
+    it("Should create income elements in the DOM", () => {
         // Verify the existence of income elements in the DOM after transactions API call
         cy.window().then((win) => {
             cy.wait("@getTransactions");
             cy.get(".income").should("have.length", 2);
         });
     });
+
+    // Test case: Display an error message if adding income fails
+    it("Should display an error if adding income fails", () => {
+        // Intercept the POST request to /add-income and modify the server behavior
+        cy.intercept('POST', '/add-income', (req) => {
+            // Set simulateError to true based on your condition
+            const simulateError = true;
+
+            // Modify the server response based on the simulateError value
+            if (simulateError) {
+                req.reply({
+                    statusCode: 500,
+                    body: { error: { message: 'Internal Server Error' } },
+                });
+            } else {
+                // Proceed with the original behavior if no error
+                req.continue();
+            }
+        }).as('addIncomeRequest');
+
+        // Enter valid income data
+        cy.get("#income_name").type("Test Income");
+        cy.get("#income_amount").type("6969");
+        cy.get("#source").type("Test Source");
+        cy.get("#income_date").type("2024-02-01");
+        cy.get("#description").type("Test Description");
+
+        // Click on button with id "add_income_button"
+        cy.get('#add_income_button').click();
+
+        // Wait for the intercepted request to complete
+        cy.wait('@addIncomeRequest');
+
+        // Assert that the error message is displayed
+        cy.get('#notificationBox').should('be.visible').and('contain', 'Internal Server Error');
+
+        // Clear the notification after 2 seconds
+        cy.wait(2000);
+        cy.get('#notificationBox').should('not.be.visible');
+    });
+
+    // Test case: Delete an income when confirmation is denied (clicking "No")
+    it("Should not delete an income when confirmation is denied", () => {
+        // Return false for window confirmation
+        cy.on("window:confirm", () => false);
+
+        // Visit the page
+        cy.visit("http://localhost:5050/instrumented/add-income.html");
+
+        // Click on the delete button for the first income
+        cy.get(".delete-icon").first().click();
+
+        // Stub window.confirm to always return false (denying confirmation)
+        cy.window().then((win) => {
+            cy.stub(win, "confirm").returns(false);
+        });
+
+        // Verify that no success alert is shown
+        cy.on("window:alert", (text) => {
+            // This alert should not be triggered in this case
+            expect(text).to.not.exist;
+        });
+
+        // Verify the URL remains on add-income.html
+        cy.url().should("include", "add-income.html");
+    });
+
+
 });
 
