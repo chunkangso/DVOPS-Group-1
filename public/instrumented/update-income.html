@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/income.js"></script>
+</head>
+
+<body onload="fillUpdateForm()">
+    <div style="display: inline-flex">
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="images/logo.png" alt="Profile Picture" class="profile-picture" />
+            </div>
+
+            <ul class="navigation-items">
+                <li class="navigation-item">
+                    <i class="fas fa-exchange-alt"></i> View Transactions
+                </li>
+                <li class="navigation-item">
+                    <i class="fas fa-arrow-up"></i> Income
+                </li>
+                <li class="navigation-item">
+                    <i class="fas fa-arrow-down"></i> Expenses
+                </li>
+            </ul>
+        </div>
+
+        <div class="update-content">
+
+            <div style="display: flex; flex-direction: row">
+                <div>
+                    <h1>Update Income</h1>
+
+                    <!-- Income Form -->
+                    <form action="/submit_income" method="post">
+                        <div class="form-group">
+                            <!-- Income Name Field -->
+                            <input type="text" id="update_income_name" name="income_name"
+                                placeholder="Enter Income Name" />
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Income Amount Field -->
+                            <input type="number" id="update_income_amount" name="income_amount"
+                                placeholder="Enter Income Amount" />
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Enter a Source Field -->
+                            <input type="text" id="update_source" name="source" placeholder="Enter Source" />
+                        </div>
+
+                        <div class="form-group" style="display: flex; flex-direction: column">
+                            <!-- Enter Date Field -->
+                            <label for="income_date">Enter Date:</label>
+                            <div style="height: 10px"></div>
+                            <input type="date" id="update_income_date" name="income_date" />
+                        </div>
+
+                        <div class="form-group" style="display: flex; flex-direction: column">
+                            <!-- Enter Description Field -->
+                            <label for="description">Enter Description:</label>
+                            <div style="height: 10px"></div>
+                            <textarea id="update_description" name="description"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="button" onclick="updateIncome()" id="update_income_button">Update Income</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

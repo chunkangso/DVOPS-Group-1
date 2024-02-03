@@ -43,3 +43,9 @@ Backend functions have been developed and tested with test cases satisfying the 
 - Add Expense
 - Edit Expense
 - Delete Expense
+
+## CI/CD Functions
+
+Jenkins is the one hosting all of the unit testing, Docker, Azure CLI, Terraform, Kubernetes and Monitoring and Logging related functions.
+
+Jenkins Email Plugin has been implemented to help notifiy developers about failed builds allowing them to promptly take a look and resolve the issue.

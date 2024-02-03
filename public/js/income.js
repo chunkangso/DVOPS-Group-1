@@ -160,7 +160,7 @@ async function calculateTotalIncome() {
                 <div class="income-title" onclick="getIncomeById('${item.id}')">
                     <i class="fa fa-arrow-up"></i>
                     <strong>${item.name}</strong> 
-                    <i class="fas fa-trash-alt delete-icon" onclick="deleteIncome(event, '${item.id}')"></i>
+                    <i class="fas fa-trash-alt delete-icon" onclick="deleteIncome(event, '${item.id}')" id="delete"></i>
                 </div>
                 <div class="income-details">
                     <p><i class="fas fa-dollar-sign"></i>$${item.amount}</p>

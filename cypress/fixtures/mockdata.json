@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Test Income",
+      "description": "Test Description",
+      "amount": 6969,
+      "source": "Test Source",
+      "username": "Testing",
+      "date": "2024-02-01",
+      "id": "1706728421915975",
+      "type": "income"
+    },
+    {
+      "name": "Test Income Oh yar",
+      "description": "Test Description",
+      "amount": 6969,
+      "source": "Test Source",
+      "username": "Testing",
+      "date": "2024-02-01",
+      "id": "1706728421915975",
+      "type": "income"
+    }
+  ]

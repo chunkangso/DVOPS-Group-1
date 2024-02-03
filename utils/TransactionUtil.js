@@ -24,6 +24,15 @@ async function viewTransactions(req, res) {
 // Controller function to handle the addition of a new income
 async function addIncome(req, res) {
   try {
+
+    // Default used for adding income unless unit testing
+    const simulateError = false;
+
+    // For unit testing simulation, if not unit testing, continue with income addition logic
+    if (simulateError) {
+      throw new Error('Simulated error during income addition');
+    }
+
     // Extracting data from the request body
     const name = req.body.name; // Name of the income 
     const description = req.body.description; // Description of the income
