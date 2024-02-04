@@ -25,8 +25,8 @@ async function viewTransactions(req, res) {
 async function addIncome(req, res) {
   try {
 
-    // Default used for adding income unless unit testing
-    const simulateError = false;
+    // // Default used for adding income unless unit testing
+    // const simulateError = false;
 
     // // For unit testing simulation, if not unit testing, continue with income addition logic
     // if (simulateError) {
