@@ -306,45 +306,45 @@ describe("Income Management Tests", () => {
         });
     });
 
-    // // Test case: Display an error message if adding income fails
-    // it("Should display an error if adding income fails", () => {
-    //     // Intercept the POST request to /add-income and modify the server behavior
-    //     cy.intercept('POST', '/add-income', (req) => {
-    //         // Set simulateError to true based on your condition
-    //         const simulateError = true;
+    // Test case: Display an error message if adding income fails
+    it("Should display an error if adding income fails", () => {
+        // Intercept the POST request to /add-income and modify the server behavior
+        cy.intercept('POST', '/add-income', (req) => {
+            // Set simulateError to true based on your condition
+            const simulateError = true;
 
-    //         // Modify the server response based on the simulateError value
-    //         if (simulateError) {
-    //             req.reply({
-    //                 statusCode: 500,
-    //                 body: { error: { message: 'Internal Server Error' } },
-    //             });
-    //         } else {
-    //             // Proceed with the original behavior if no error
-    //             req.continue();
-    //         }
-    //     }).as('addIncomeRequest');
+            // Modify the server response based on the simulateError value
+            if (simulateError) {
+                req.reply({
+                    statusCode: 500,
+                    body: { error: { message: 'Internal Server Error' } },
+                });
+            } else {
+                // Proceed with the original behavior if no error
+                req.continue();
+            }
+        }).as('addIncomeRequest');
 
-    //     // Enter valid income data
-    //     cy.get("#income_name").type("Test Income");
-    //     cy.get("#income_amount").type("6969");
-    //     cy.get("#source").type("Test Source");
-    //     cy.get("#income_date").type("2024-02-01");
-    //     cy.get("#description").type("Test Description");
+        // Enter valid income data
+        cy.get("#income_name").type("Test Income");
+        cy.get("#income_amount").type("6969");
+        cy.get("#source").type("Test Source");
+        cy.get("#income_date").type("2024-02-01");
+        cy.get("#description").type("Test Description");
 
-    //     // Click on button with id "add_income_button"
-    //     cy.get('#add_income_button').click();
+        // Click on button with id "add_income_button"
+        cy.get('#add_income_button').click();
 
-    //     // Wait for the intercepted request to complete
-    //     cy.wait('@addIncomeRequest');
+        // Wait for the intercepted request to complete
+        cy.wait('@addIncomeRequest');
 
-    //     // Assert that the error message is displayed
-    //     cy.get('#notificationBox').should('be.visible').and('contain', 'Internal Server Error');
+        // Assert that the error message is displayed
+        cy.get('#notificationBox').should('be.visible').and('contain', 'Internal Server Error');
 
-    //     // Clear the notification after 2 seconds
-    //     cy.wait(2000);
-    //     cy.get('#notificationBox').should('not.be.visible');
-    // });
+        // Clear the notification after 2 seconds
+        cy.wait(2000);
+        cy.get('#notificationBox').should('not.be.visible');
+    });
 
     // Test case: Delete an income when confirmation is denied (clicking "No")
     it("Should not delete an income when confirmation is denied", () => {
