@@ -28,6 +28,8 @@
   },
   "scripts": {
     "test": "nyc mocha 'tests/*.test.js' && npm run check-coverage",
+    "testss": "npm run cypresstest",
+    "cypresstest": "node_modules\\.bin\\cypress run --headless --spec cypress\\e2e\\incomeTest.cy.js --browser chrome",
     "check-coverage": "nyc check-coverage",
     "test-report": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
     "commit": "cz",
