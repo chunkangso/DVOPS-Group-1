@@ -28,10 +28,10 @@ async function addIncome(req, res) {
     // Default used for adding income unless unit testing
     const simulateError = false;
 
-    // For unit testing simulation, if not unit testing, continue with income addition logic
-    if (simulateError) {
-      throw new Error('Simulated error during income addition');
-    }
+    // // For unit testing simulation, if not unit testing, continue with income addition logic
+    // if (simulateError) {
+    //   throw new Error('Simulated error during income addition');
+    // }
 
     // Extracting data from the request body
     const name = req.body.name; // Name of the income 
