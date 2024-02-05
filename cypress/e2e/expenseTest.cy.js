@@ -20,7 +20,6 @@ describe("Expense Management Tests", () => {
       },
     });
   });
-
   it("displays the correct page title", () => {
     cy.title().should("eq", "Expense");
   });
@@ -265,10 +264,6 @@ describe("Expense Management Tests", () => {
 
     cy.url().should("include", "add-expense.html");
   });
-
-
-
-
 
   it("should calculate total expense correctly", () => {
     cy.window().then((win) => {
