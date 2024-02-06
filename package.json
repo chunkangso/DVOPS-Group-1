@@ -25,7 +25,7 @@
     "reporter": "mochawesome"
   },
   "scripts": {
-    "test": "nyc mocha --watch tests/*.test.js --reporter mochawesome",
+    "test": "nyc mocha tests/*.test.js",
     "test-report": "nyc mocha tests/*.test.js --reporter mochawesome",
     "commit": "cz",
     "prepare": "husky install"

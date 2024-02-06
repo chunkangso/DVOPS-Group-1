@@ -150,7 +150,7 @@ function login() {
       cov_186etf6lva().s[14]++;
       sessionStorage.setItem("email", jsonData.email);
       cov_186etf6lva().s[15]++;
-      window.location.href = "home.html";
+      window.location.href = "view-transactions.html";
     } else {
       cov_186etf6lva().b[2][1]++;
       cov_186etf6lva().s[16]++;

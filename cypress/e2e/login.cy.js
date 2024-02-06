@@ -1,9 +1,8 @@
 // login.cy.js
 describe("Login Functionality", () => {
   beforeEach(() => {
-    cy.visit("localhost:5050/instrumented/index.html"); // Replace with the correct path to your login page
-  });
-
+    cy.visit("localhost:5050/instrumented/index.html"); 
+  })
   it("shows an error when fields are empty", () => {
     // Attempt to submit the form without filling out the fields
     cy.get("button").contains("Login").click(); // Adjust if your button contains different text
@@ -36,7 +35,7 @@ describe("Login Functionality", () => {
 
     cy.get("button").contains("Login").click();
     cy.wait("@loginSuccess"); 
-
+  
     //cy.url().should("include", "instrumented/view-transactions.html");
   });
 });
