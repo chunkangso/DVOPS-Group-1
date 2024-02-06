@@ -17,6 +17,6 @@ spec: # defines the desired state of the Deployment.
     spec: # specifies the container(s) to run
       containers:
       - name: rms-container
-        image: chunkangso/rms-docker-img:v4
+        image: chunkangso/rms-docker-img:latest
         ports:
         - containerPort: 5050 # specifies the port that the application listens on
