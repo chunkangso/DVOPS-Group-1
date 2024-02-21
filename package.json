@@ -51,7 +51,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.12.19",
     "commitizen": "^4.3.0",
-    "cypress": "^13.6.4",
+    "cypress": "^13.6.5",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
     "mochawesome": "^7.1.3",
