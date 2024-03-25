@@ -46,7 +46,7 @@
     "fs": "^0.0.1-security",
     "mocha": "^10.2.0",
     "selenium-webdriver": "^4.17.0",
-    "winston": "^3.11.0"
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.12.19",
